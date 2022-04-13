@@ -1,0 +1,266 @@
+
+/* Variables */
+:root {
+    --colorPrincipal: #235789;
+    --colorPrincipalClaro: #2e71af;
+    --rojoOscuro: #C1292E;
+    --amarillo: #F1D302;
+    --azulTitulos: #1ea2e4;
+    --azulBotones: #1c9ada;
+    --azulBotonesHover: #1da4e7;
+    --negro: #020100;
+    --gris: #ABABAB;
+    --grisClaro: #f5f5f5;
+    --blanco: #FDFFFC;
+
+    --fuenteParrafos: 'Roboto', sans-serif;
+    --fuenteTitulos: 'Akshar', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*----------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
+
+
+/* Generales */
+
+
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1 rem = 10px */
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    font-family: var(--fuenteParrafos);
+    background-color: var(--blanco);
+    font-size: 1.2rem;
+    line-height: 2;
+}
+
+
+
+/*----------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
+
+
+
+/* Globales */
+
+a{
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 3rem;
+}
+
+h4 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.8rem;
+    font-weight: 100;
+}
+
+.contenedor {
+    margin: 0 auto;
+    margin-top: 15rem;
+    max-width: 120rem;
+    width: 90%;
+}
+
+
+
+/*----------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
+
+/* Navegacion */
+
+.header {
+    top: 0;
+    background-color: var(--colorPrincipal);
+    position: fixed;
+    width: 100%;
+}
+
+.header__barra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.navegacion {
+    margin: 2rem;
+}
+
+.navegacion a {
+    font-size: 2rem;
+    color: var(--blanco);
+    text-decoration: none;
+    padding: 2rem;
+}
+
+.navegacion a:hover {
+    border-radius: .5rem;
+    background-color: var(--colorPrincipalClaro);
+}
+
+.navegacion a:visited {
+    color: var(--blanco);
+}
+
+/*----------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
+
+/* Iniciar Sesión */
+
+
+
+.caja-formulario h3 {
+    font-size: 3rem;
+    text-align: center;
+    margin: 0;
+    color: var(--azulTitulos);
+}
+
+.formulario {
+    margin: 0 auto;
+    padding: 6rem;
+    border-radius: 2rem;
+    max-width: 40rem;
+    box-shadow: 4px 4px 10px 5px rgba(0, 0, 0, 0.2);
+    background-color: var(--grisClaro);
+}
+
+.formulario input,
+.formulario label {
+    display: block;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.formulario label {
+    font-size: 2.5rem;
+    font-weight: bold;
+    
+}
+
+.formulario input[type="email"],
+.formulario input[type="password"] {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid var(--colorPrincipalClaro);
+    background-color: transparent;
+    font-size: 1.5rem;
+    width: 90%;
+}
+
+.formulario input[type="submit"] {
+    font-size: 2.5rem;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    background-color: var(--azulBotones);
+    color: var(--blanco);
+    border: none;
+    cursor: pointer;
+    margin: 5rem auto 0 auto;
+}
+
+.formulario input[type="submit"]:hover {
+    background-color: var(--azulBotonesHover);
+}
+
+.formulario input:focus {
+    outline: none;
+    border-bottom: 1px solid var(--negro);
+}
+
+.formulario input::placeholder {
+    color: var(--gris);
+}
+
+
+
+
+
+
+
+
+
+/*----------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
+
+/* Footer */
+
+.footer {
+    background-color: var(--colorPrincipal);
+    bottom: 0;
+}
+
+
+
+.contenido-footer p{
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--blanco);
+    padding: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

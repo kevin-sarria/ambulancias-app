@@ -1,0 +1,9 @@
+CREATE DATABASE ambulancias_app
+CREATE TABLE ambulancia(id INT(3) AUTO_INCREMENT, placa VARCHAR(10) NOT NULL, id_tipo_ambulancia INT(3) NOT NULL, imgaen VARCHAR(300), id_insumos INT(3), PRIMARY KEY(id))
+CREATE TABLE insumos_ambulancia(id INT(3), id_insumo INT(3), id_ambulancia INT(3), PRIMARY KEY(id))
+CREATE TABLE tipos_insumos(id INT(3) AUTO_INCREMENT NOT NULL, tipo_insumo VARCHAR(30) NOT NULL, PRIMARY KEY(id))
+CREATE TABLE tipo_ambulancia(id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, PRIMARY KEY(id))
+CREATE TABLE herramientas(id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, color VARCHAR(30), id_tipo_insumo INT(3), PRIMARY KEY(id))
+CREATE TABLE medicamentos(id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, tipo VARCHAR(30) NOT NULL, lote VARCHAR(30), fecha_vencimiento DATE, cantidad INT(3), registro_invima VARCHAR(30), id_tipo_insumo INT(3), PRIMARY KEY(id))
+
+
