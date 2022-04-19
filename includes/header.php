@@ -34,8 +34,8 @@
 
         <nav class="navegacion">
         <?php if(!isset($_SESSION['user'])) {echo '<a href="#">Iniciar Sesión</a>';} ?>
-            <?php if(isset($_SESSION['user'])) {echo '<a href="#">Inicio</a>';} ?>
-            <?php if(isset($_SESSION['user'])) {echo '<a href="#">Ambulancias</a>';} ?>
+            <?php if(isset($_SESSION['user'])) {echo '<a href="../view/admin.php">Inicio</a>';} ?>
+            <?php if(isset($_SESSION['user'])) {echo '<a href="../view/ambulancias.php">Ambulancias</a>';} ?>
             <?php if(isset($_SESSION['user'])) {echo '<a href="#">Insumos</a>';} ?>
             <?php if(isset($_SESSION['user'])) {echo '<a href="../cerrar_sesion.php">Cerrar Sesión</a>';} ?>
         </nav>
