@@ -138,21 +138,22 @@ p {
 }
 
 
-.navegacion a {
+.navegacion {
     display: none;
 }
 
 @media (min-width: 1024px) {
-    .navegacion a {
+    .navegacion {
         display: inline;
-        font-size: 2rem;
-        color: var(--blanco);
-        text-decoration: none;
-        padding: 2rem;
     }
 }
 
-
+.navegacion a {
+    font-size: 2rem;
+    color: var(--blanco);
+    text-decoration: none;
+    padding: 2rem;
+}
 
 .navegacion a:hover {
     border-radius: .5rem;
@@ -161,6 +162,54 @@ p {
 
 .navegacion a:visited {
     color: var(--blanco);
+}
+
+.icono_menu {
+    cursor: pointer;
+    width: 6rem;
+}
+
+@media (min-width: 1024px) {
+    .icono_menu {
+        display: none;
+    }
+}
+
+.mostrar_menu {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 8.5rem;
+    background-color: var(--colorPrincipal);
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+
+    animation-name: menu;
+    animation-duration: 1s;
+
+}
+
+@media (min-width: 768px) {
+    .mostrar_menu {
+        display: none;
+    }
+}
+
+.mostrar_menu a {
+    display: block;
+    text-align: center;
+}
+
+@keyframes menu {
+    0% {
+        transform: translateX(100rem);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
 }
 
 /*----------------------------------------------------------------------------------------------*/
@@ -263,29 +312,70 @@ p {
     box-shadow: 5px 5px 10px 8px rgba(0, 0, 0, 0.2);
     border-radius: 2rem;
     padding: 1rem;
-
+    width: 100%;
+    margin: 0 auto;
 }
+
+@media (min-width: 768px) {
+    .contenedor__inicio__admin {
+        width: 60%;
+    }
+}
+
 
 .contenedor__inicio__admin h2 {
     text-align: center;
     color: var(--azulTitulos);
+    font-size: 4rem;
     margin-top: 2rem;
     margin-bottom: 0;
 }
 
 .tabla_inicio_admin {
     margin: 0 auto;
-    border-spacing: 5rem;
+    border-spacing: 2rem;
+    width: 100%;
+    text-align: center;
 }
 
 .tabla_inicio_admin thead {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--colorPrincipalClaro);
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .tabla_inicio_admin thead {
+        display: inline-table;
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--colorPrincipalClaro);
+    }
 }
 
 
 
+.tabla_inicio_admin th {
+    display: block;
+    text-align: right;
+
+}
+
+@media (min-width: 1024px) {
+    .tabla_inicio_admin th {
+        display: inline-table;
+    }
+}
+
+.tabla_inicio_admin th:before {
+    content: attr(data-label);
+    float: left;
+    color: var(--colorPrincipal);
+}
+
+@media (min-width: 1024px) {
+    .tabla_inicio_admin th::before {
+        display: none;
+    }
+}
 
 
 
@@ -331,6 +421,10 @@ p {
 
 .ambulancia h3 {
     color: var(--rojoError);
+}
+
+.ambulancia img {
+    max-width: 100%;
 }
 
 .ambulancia:hover {

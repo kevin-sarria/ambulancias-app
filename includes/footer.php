@@ -4,6 +4,7 @@
 
 </body>
 
+<script src="../js/btn_menu.js"></script>
 
 <footer class="footer no-margin">
     <div class="contenido-footer contenedor">

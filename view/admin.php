@@ -27,24 +27,24 @@ if (!isset($_SESSION['user'])) {
 
                 <tbody>
                     <tr>
-                        <th>Aceptaminofen</th>
-                        <th>INVIMA 2022M-0020337</th>
-                        <th class="fecha_lote">08/12/2020</th>
-                        <th class="fecha_vencimiento">08/10/2022</th>
+                        <th data-label = "Nombre" >Aceptaminofen</th>
+                        <th data-label = "Registro invima" >INVIMA 2022M-0020337</th>
+                        <th data-label = "Lote"  class="fecha_lote">08/12/2020</th>
+                        <th data-label = "Fecha Vencimiento"  class="fecha_vencimiento">08/10/2022</th>
                     </tr>
 
                     <tr>
-                        <th>Aceptaminofen</th>
-                        <th>INVIMA 2022M-0020337</th>
-                        <th class="fecha_lote">08/12/2020</th>
-                        <th class="fecha_vencimiento">08/10/2022</th>
+                        <th data-label = "Nombre" >Aceptaminofen</th>
+                        <th data-label = "Registro Invima" >INVIMA 2022M-0020337</th>
+                        <th data-label = "Lote"  class="fecha_lote">08/12/2020</th>
+                        <th data-label = "Fecha Vencimiento"  class="fecha_vencimiento">08/10/2022</th>
                     </tr>
 
                     <tr>
-                        <th>Aceptaminofen</th>
-                        <th>INVIMA 2022M-0020337</th>
-                        <th class="fecha_lote">08/12/2020</th>
-                        <th class="fecha_vencimiento">08/12/2022</th>
+                        <th data-label = "Nombre" >Aceptaminofen</th>
+                        <th data-label = "Registro Invima" >INVIMA 2022M-0020337</th>
+                        <th data-label = "Lote"  class="fecha_lote">08/12/2020</th>
+                        <th data-label = "Fecha Vencimiento"  class="fecha_vencimiento">08/12/2022</th>
                     </tr>
 
                 </tbody>

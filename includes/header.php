@@ -1,12 +1,13 @@
 <?php
-    session_start();
+session_start();
 
-    isset($_SESSION['user']);
+isset($_SESSION['user']);
 
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,28 +24,40 @@
     <link rel="stylesheet" href="../css/estilo.css">
     <title>Ambulancias app</title>
 </head>
+
 <body>
 
-    <header  class="header">
+    <header class="header">
 
-    <div class="header__barra">
-        <div class="logo">
-            <a href="#"><img src="../img/logo.png" alt="Logo Ambulancia"></a>
+        <div class="header__barra">
+            <div class="logo">
+                <a href="#"><img src="../img/logo.png" alt="Logo Ambulancia"></a>
+            </div>
+
+            <nav class="navegacion">
+                <?php if (!isset($_SESSION['user'])) {
+                    echo '<a href="#">Iniciar Sesión</a>';
+                } ?>
+                <?php if (isset($_SESSION['user'])) {
+                    echo '<a href="../view/admin.php">Inicio</a>';
+                } ?>
+                <?php if (isset($_SESSION['user'])) {
+                    echo '<a href="../view/ambulancias.php">Ambulancias</a>';
+                } ?>
+                <?php if (isset($_SESSION['user'])) {
+                    echo '<a href="../view/insumos.php">Insumos</a>';
+                } ?>
+                <?php if (isset($_SESSION['user'])) {
+                    echo '<a href="../cerrar_sesion.php">Cerrar Sesión</a>';
+                } ?>
+            </nav>
+
+            <img class="icono_menu" src="../img/menu.png" alt="Icono menu">
+            
+
         </div>
 
-        <nav class="navegacion">
-        <?php if(!isset($_SESSION['user'])) {echo '<a href="#">Iniciar Sesión</a>';} ?>
-            <?php if(isset($_SESSION['user'])) {echo '<a href="../view/admin.php">Inicio</a>';} ?>
-            <?php if(isset($_SESSION['user'])) {echo '<a href="../view/ambulancias.php">Ambulancias</a>';} ?>
-            <?php if(isset($_SESSION['user'])) {echo '<a href="#">Insumos</a>';} ?>
-            <?php if(isset($_SESSION['user'])) {echo '<a href="../cerrar_sesion.php">Cerrar Sesión</a>';} ?>
-        </nav>
-        </div>
     </header>
 
 
     <main class="contenedor contenido-principal">
-        
-    
-
-    
