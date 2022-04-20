@@ -29,21 +29,21 @@ if (!isset($_SESSION['user'])) {
                     <tr>
                         <th>Aceptaminofen</th>
                         <th>INVIMA 2022M-0020337</th>
-                        <th>08/12/2020</th>
+                        <th class="fecha_lote">08/12/2020</th>
                         <th class="fecha_vencimiento">08/10/2022</th>
                     </tr>
 
                     <tr>
                         <th>Aceptaminofen</th>
                         <th>INVIMA 2022M-0020337</th>
-                        <th>08/12/2020</th>
+                        <th class="fecha_lote">08/12/2020</th>
                         <th class="fecha_vencimiento">08/10/2022</th>
                     </tr>
 
                     <tr>
                         <th>Aceptaminofen</th>
                         <th>INVIMA 2022M-0020337</th>
-                        <th>08/12/2020</th>
+                        <th class="fecha_lote">08/12/2020</th>
                         <th class="fecha_vencimiento">08/12/2022</th>
                     </tr>
 

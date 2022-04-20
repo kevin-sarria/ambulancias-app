@@ -1,27 +1,37 @@
 'use strict'
 
 let fechas = document.querySelectorAll('.fecha_vencimiento');
+let fechas_lotes = document.querySelectorAll('.fecha_lote');
 let array_fechas = [];
+let array_fechas_lotes = [];
 
 for( let i = 0; i < fechas.length; i++) {
     array_fechas.push(fechas[i]);
+    array_fechas_lotes.push(fechas_lotes[i]);
+}
+
+for( let i = 0; i < array_fechas.length; i++) {
+
+
+    
+
+    let nuevo_lote = array_fechas_lotes[i].innerHTML.split('/', 2);
+
+    let nueva_fecha_v = array_fechas[i].innerHTML.split('/', 2);
+
+    if() {
+
+        array_fechas.forEach(fecha => {
+            fecha.style.color = "red";
+        });
+
+    }
+
 }
 
 
-console.log(array_fechas);
 
-array_fechas.forEach(fecha => {
 
-    
-
-    if(fecha.innerHTML == '08/10/2022') {
-        fecha.style.color = "red";
-        console.log(fecha);
-    }else {
-        console.log('Noooooo');
-    }
-    
-});
 
 
 
