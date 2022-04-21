@@ -7,12 +7,10 @@ let menu = document.querySelector('.navegacion');
 btn_menu.addEventListener('click', () => {
     if(menu.className.indexOf('mostrar_menu') > -1) {
         menu.classList.remove('mostrar_menu');
-        console.log(menu);
         enableScroll();
     }else {
         menu.classList.add('mostrar_menu');
         disableScroll();
-        console.log(menu);    
     }
 });
 
