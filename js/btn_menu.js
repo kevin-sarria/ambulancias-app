@@ -7,21 +7,24 @@ let menu = document.querySelector('.navegacion');
 btn_menu.addEventListener('click', () => {
     if(menu.className.indexOf('mostrar_menu') > -1) {
         menu.classList.remove('mostrar_menu');
+        console.log(menu);
         enableScroll();
     }else {
         menu.classList.add('mostrar_menu');
-        disableScroll();        
+        disableScroll();
+        console.log(menu);    
     }
 });
 
-window.setInterval( () => {
-    let pantalla = window.screen.width;
+ window.setInterval( () => {
+     let pantalla = window.screen.width;
 
-    if(pantalla > 1024) {
-        enableScroll();
-    }
+     if(pantalla >= 1024) {
+        menu.classList.remove('mostrar_menu');
+         enableScroll();
+     }
 
-}, 1000);
+ }, 500);
 
 function disableScroll(){  
     var x = window.scrollX;

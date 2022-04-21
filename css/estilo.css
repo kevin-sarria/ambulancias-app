@@ -138,12 +138,12 @@ p {
 }
 
 
-.navegacion {
+.navegacion a{
     display: none;
 }
 
 @media (min-width: 1024px) {
-    .navegacion {
+    .navegacion a{
         display: inline;
     }
 }
@@ -190,7 +190,7 @@ p {
 
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .mostrar_menu {
         display: none;
     }
@@ -199,6 +199,12 @@ p {
 .mostrar_menu a {
     display: block;
     text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .mostrar_menu a {
+        display: none;
+    }
 }
 
 @keyframes menu {
