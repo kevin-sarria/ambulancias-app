@@ -15,7 +15,7 @@ btn_menu.addEventListener('click', () => {
 });
 
  window.setInterval( () => {
-     let pantalla = window.screen.width;
+     let pantalla = document.scrollingElement.scrollWidth;
 
      if(pantalla >= 1024) {
         menu.classList.remove('mostrar_menu');

@@ -5,6 +5,7 @@
 </body>
 
 <script src="../js/btn_menu.js"></script>
+<script src="../js/moment.js"></script>
 
 <footer class="footer no-margin">
     <div class="contenido-footer contenedor">

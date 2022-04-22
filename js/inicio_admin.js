@@ -10,15 +10,17 @@ for( let i = 0; i < fechas.length; i++) {
 for( let i = 0; i < array_fechas.length; i++) {
     let nuevo_lote = array_fechas_lotes[i].innerHTML.split('/', 3);
     let nueva_fecha_v = array_fechas[i].innerHTML.split('/', 3);
+
+    let new_fecha = moment(array_fechas_lotes[i].innerHTML, 'dd MMMM YYYY').subtract(nuevo_lote[1], 'month');
+
+    console.log(new_fecha);
+
     // if() {
     //     array_fechas.forEach(fecha => {
     //         fecha.style.color = "red";
     //     });
     // }
-    
-     
 }
-
 
 
 

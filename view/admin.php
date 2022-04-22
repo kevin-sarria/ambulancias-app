@@ -29,22 +29,22 @@ if (!isset($_SESSION['user'])) {
                     <tr>
                         <th data-label = "Nombre" >Aceptaminofen</th>
                         <th data-label = "Registro invima" >INVIMA 2022M-0020337</th>
-                        <th data-label = "Lote"  class="fecha_lote">08/12/2020</th>
-                        <th data-label = "Fecha Vencimiento"  class="fecha_vencimiento">08/10/2022</th>
+                        <th data-label = "Lote"  class="fecha_lote">8/12/2020</th>
+                        <th data-label = "Fecha Vencimiento"  class="fecha_vencimiento">8/10/2022</th>
                     </tr>
 
                     <tr>
                         <th data-label = "Nombre" >Aceptaminofen</th>
                         <th data-label = "Registro Invima" >INVIMA 2022M-0020337</th>
-                        <th data-label = "Lote"  class="fecha_lote">08/12/2020</th>
-                        <th data-label = "Fecha Vencimiento"  class="fecha_vencimiento">08/10/2022</th>
+                        <th data-label = "Lote"  class="fecha_lote">8/12/2020</th>
+                        <th data-label = "Fecha Vencimiento"  class="fecha_vencimiento">8/10/2022</th>
                     </tr>
 
                     <tr>
                         <th data-label = "Nombre" >Aceptaminofen</th>
                         <th data-label = "Registro Invima" >INVIMA 2022M-0020337</th>
-                        <th data-label = "Lote"  class="fecha_lote">08/12/2020</th>
-                        <th data-label = "Fecha Vencimiento"  class="fecha_vencimiento">08/12/2022</th>
+                        <th data-label = "Lote"  class="fecha_lote">8/12/2020</th>
+                        <th data-label = "Fecha Vencimiento"  class="fecha_vencimiento">8/12/2022</th>
                     </tr>
 
                 </tbody>
@@ -53,6 +53,6 @@ if (!isset($_SESSION['user'])) {
         </div>
     </section>
 
-<script src = "../js/inicio_admin.js"></script>
+<script src = "../js/inicio_admin.js" type="module"></script>
 
 <?php include('../includes/footer.php'); ?>
