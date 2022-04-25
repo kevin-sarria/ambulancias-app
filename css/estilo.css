@@ -354,7 +354,9 @@ p {
         font-size: 2rem;
         font-weight: bold;
         color: var(--colorPrincipalClaro);
+        text-indent: 12;
     }
+
 }
 
 
