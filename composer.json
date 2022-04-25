@@ -1,0 +1,15 @@
+{
+    "name": "hospital/ambulancias-app",
+    "description": "\"App para gestion de ambulancias\"",
+    "autoload": {
+        "psr-4": {
+            "Hospital\\AmbulanciasApp\\": "App/"
+        }
+    },
+    "authors": [
+        {
+            "name": "\"Kevin Sarria\""
+        }
+    ],
+    "require": {}
+}

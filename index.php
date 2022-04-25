@@ -1,10 +1,10 @@
 <?php
 
 require 'model/conexion.php';
-include('includes/header.php');
+require 'includes/rutas.php';
 
 $conexion = conectarDB();
-
+$ruta = rutas();
 
 if (isset($_SESSION['user'])) {
     header('location: view/admin.php');
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 
-
+include('./includes/header.php');
 
 ?>
 
@@ -91,6 +91,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </div>
 
+<?php
+
+    $hola = $_SERVER['SERVER_NAME'];
+    echo $hola;
+
+?>
 
 <main class="contenedor">
 
@@ -106,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?php
 
-mysqli_close($conexion);
 include('includes/footer.php');
+mysqli_close($conexion);
 
 ?>
