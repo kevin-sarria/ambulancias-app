@@ -4,7 +4,7 @@ include('../includes/header.php');
 
 
 
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['login'])) {
     header('location: ../index.php');
 }
 

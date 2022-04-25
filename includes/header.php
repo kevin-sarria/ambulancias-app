@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-isset($_SESSION['user']);
+isset($_SESSION['login']);
 
 ?>
 
@@ -35,19 +35,19 @@ isset($_SESSION['user']);
             </div>
 
             <nav class="navegacion">
-                <?php if (!isset($_SESSION['user'])) {
+                <?php if (!isset($_SESSION['login'])) {
                     echo '<a href="#">Iniciar Sesión</a>';
                 } ?>
-                <?php if (isset($_SESSION['user'])) {
+                <?php if (isset($_SESSION['login'])) {
                     echo '<a href="../view/admin.php">Inicio</a>';
                 } ?>
-                <?php if (isset($_SESSION['user'])) {
+                <?php if (isset($_SESSION['login'])) {
                     echo '<a href="../view/ambulancias.php">Ambulancias</a>';
                 } ?>
-                <?php if (isset($_SESSION['user'])) {
+                <?php if (isset($_SESSION['login'])) {
                     echo '<a href="../view/insumos.php">Insumos</a>';
                 } ?>
-                <?php if (isset($_SESSION['user'])) {
+                <?php if (isset($_SESSION['login'])) {
                     echo '<a href="../cerrar_sesion.php">Cerrar Sesión</a>';
                 } ?>
             </nav>

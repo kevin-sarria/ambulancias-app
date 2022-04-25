@@ -6,7 +6,7 @@ include('includes/header.php');
 $conexion = conectarDB();
 
 
-if(isset($_SESSION['user'])) {
+if (isset($_SESSION['user'])) {
     header('location: view/admin.php');
 }
 
@@ -14,31 +14,47 @@ $errores = [];
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-   
+
     $email = mysqli_real_escape_string($conexion, filter_var($_POST['email'], FILTER_VALIDATE_EMAIL));
     $password = mysqli_real_escape_string($conexion, $_POST['password']);
 
-    $query = "SELECT * FROM `users` WHERE correo = '${email}' AND password = '${password}'";
+    if (!$password) {
+        $errores[] = "La contraseña es incorrecta o no es valida<br>";
+    }
 
-    $respuesta = mysqli_query($conexion, $query);
+    if (!$email) {
+        $errores[] = "El correo es incorrecto o no es valido<br>";
+    }
 
+    if (empty($errores)) {
+        // Revisar si el usuario existe
+        $query = "SELECT * FROM `users` WHERE correo = '${email}'";
+        $respuesta = mysqli_query($conexion, $query);
 
-    
+        if ($respuesta->num_rows) {
 
-    if ($respuesta->num_rows) {
+            // Volver el array asociativo para acceder mas faicl a la información
+            $usuario = mysqli_fetch_assoc($respuesta);
 
-        $user = mysqli_fetch_assoc($respuesta);
-        session_start();
-        $_SESSION['user'] = $user['correo'];
-        header('location: /view/admin.php');
-    } else {
+            // Verificar si la contraseña es correcta
+            $auth = password_verify($password, $usuario['password']);
 
-        if(!$password) {
-            $errores[] = "La contraseña es incorrecta o no es valida<br>";
-        }
+            if($auth) {
+                // Iniciamos la sesion
+                session_start();
 
-        if(!$email) {
-            $errores[] = "El correo es incorrecto o no es valido<br>";
+                // Llenamos el arreglo de la sesion
+                $_SESSION['user'] = $usuario['correo'];
+                $_SESSION['login'] = true;
+
+                // Redireccionamos a la pagina deseada
+                header('location: ./view/admin.php');
+            } else {
+                $errores[] = "La contraseña es incorrecta";
+            }
+            
+        } else {
+            $errores[] = "El usuario no existe";
         }
     }
 }
@@ -48,16 +64,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 ?>
 
-<?php foreach($errores as $error): ?>
-        <div class="alerta error">
-            
+<?php foreach ($errores as $error) : ?>
+    <div class="alerta error">
+
         <?php echo $error; ?>
 
-        </div>
+    </div>
 
-        <?php endforeach; ?>
+<?php endforeach; ?>
 
-        <div class="caja-formulario">
+<div class="caja-formulario">
 
     <form method="POST" class="formulario">
 
@@ -94,5 +110,3 @@ mysqli_close($conexion);
 include('includes/footer.php');
 
 ?>
-
-
