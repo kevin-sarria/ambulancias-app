@@ -6,7 +6,9 @@ require 'model/conexion.php';
 require 'includes/rutas.php';
 include('./includes/header.php');
 
-
+if(isset($_SESSION['login'])) {
+    header('location: /ambulancias-app/view/admin.php');
+}
 
 $conexion = conectarDB();
 

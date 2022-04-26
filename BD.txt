@@ -10,13 +10,17 @@ CREATE TABLE tipo_ambulancia(id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(3
 
 CREATE TABLE herramientas(id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, color VARCHAR(30), PRIMARY KEY(id))
 
-CREATE TABLE medicamentos(id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, tipo VARCHAR(30) NOT NULL, lote VARCHAR(30), fecha_vencimiento DATE, cantidad INT(3), registro_invima VARCHAR(30), PRIMARY KEY(id))
+CREATE TABLE medicamentos(id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, tipo VARCHAR(30) NOT NULL, lote DATE, fecha_vencimiento DATE, cantidad INT(3), registro_invima VARCHAR(30), PRIMARY KEY(id))
 
 CREATE TABLE dispositivos_medicos(id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(60) NOT NULL, cantidad INT(4) NOT NULL, lote VARCHAR(30) NOT NULL, fecha_vencimiento DATE, registro_invima VARCHAR(30), PRIMARY KEY(id))
 
 CREATE TABLE users(id INT(3) AUTO_INCREMENT NOT NULL, correo VARCHAR(60) NOT NULL, password VARCHAR(60) NOT NULL, admin INT(1) NOT NULL, user INT(1) NOT NULL, PRIMARY KEY(id))
 
 INSERT INTO `users`(`correo`, `password`, `admin`, `user`) VALUES ('correo@correo.com','12345678','1','1')
+
+INSERT INTO `medicamentos`(`nombre`, `tipo`, `lote`, `fecha_vencimiento`, `cantidad`, `registro_invima`) VALUES ('aceptaminofen','medicamento analgesico', '2020/12/10', '2022/12/10','30','INVIMA 2022M-0020337');
+
+INSERT INTO `medicamentos`(`nombre`, `tipo`, `lote`, `fecha_vencimiento`, `cantidad`, `registro_invima`) VALUES ('paracetamol','medicamento analgesico', '2020/12/10', '2022/12/10','30','INVIMA 2022M-0020337');
 
 
 

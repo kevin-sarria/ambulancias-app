@@ -385,7 +385,20 @@ p {
     }
 }
 
+.link_ver_mas {
+    display: block;
+    text-align: end;
+    
+}
 
+.link_ver_mas a {
+    font-size: 2rem;
+    margin: 2rem 5rem 2rem 0;
+}
+
+.link_ver_mas a:visited {
+    color: var(--colorPrincipal);
+}
 
 
 

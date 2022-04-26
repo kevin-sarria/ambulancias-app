@@ -3,10 +3,19 @@
 session_start();
 
 include('../includes/header.php');
+include('../model/conexion.php');
+
+$conexion = conectarDB();
 
 if (!isset($_SESSION['login'])) {
-    echo "hola";
+    header('location: /ambulancias-app/');
 }
+
+$query = "SELECT nombre, registro_invima, lote, fecha_vencimiento FROM medicamentos ORDER BY fecha_vencimiento ASC";
+
+$respuesta = mysqli_query($conexion, $query);
+
+mysqli_fetch_assoc($respuesta);
 
 
 ?>
@@ -26,30 +35,19 @@ if (!isset($_SESSION['login'])) {
                 </thead>
 
                 <tbody>
+                    <?php foreach($respuesta as $datos): ?>
                     <tr>
-                        <th data-label = "Nombre" >Aceptaminofen</th>
-                        <th data-label = "Registro invima" >INVIMA 2022M-0020337</th>
-                        <th data-label = "Lote"  class="fecha_lote">8/12/2020</th>
-                        <th data-label = "Fecha Vencimiento"  class="fecha_vencimiento">8/10/2022</th>
+                        <th data-label = "Nombre" ><?php echo $datos['nombre']; ?></th>
+                        <th data-label = "Registro invima" ><?php echo $datos['registro_invima']; ?></th>
+                        <th data-label = "Lote"  class="fecha_lote"><?php echo $datos['lote']; ?></th>
+                        <th data-label = "Fecha Vencimiento"  class="fecha_vencimiento"><?php echo $datos['fecha_vencimiento']; ?></th>
                     </tr>
-
-                    <tr>
-                        <th data-label = "Nombre" >Aceptaminofen</th>
-                        <th data-label = "Registro Invima" >INVIMA 2022M-0020337</th>
-                        <th data-label = "Lote"  class="fecha_lote">8/12/2020</th>
-                        <th data-label = "Fecha Vencimiento"  class="fecha_vencimiento">8/10/2022</th>
-                    </tr>
-
-                    <tr>
-                        <th data-label = "Nombre" >Aceptaminofen</th>
-                        <th data-label = "Registro Invima" >INVIMA 2022M-0020337</th>
-                        <th data-label = "Lote"  class="fecha_lote">8/12/2020</th>
-                        <th data-label = "Fecha Vencimiento"  class="fecha_vencimiento">8/12/2022</th>
-                    </tr>
-
+                    <?php endforeach; ?>
                 </tbody>
             </table>
-
+            <div class="link_ver_mas">
+                <a href="#">Ver Más >>></a>
+            </div>
         </div>
     </section>
 
