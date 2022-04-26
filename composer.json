@@ -3,7 +3,7 @@
     "description": "\"App para gestion de ambulancias\"",
     "autoload": {
         "psr-4": {
-            "Hospital\\AmbulanciasApp\\": "App/"
+            "App\\": "src/"
         }
     },
     "authors": [

@@ -1,10 +1,12 @@
 <?php 
 
+session_start();
+
 include('../includes/header.php');
 
 
 
-if(!isset($_SESSION['user'])) {
+if(!isset($_SESSION['login'])) {
     header('location: ../index.php');
 }
 
@@ -16,37 +18,37 @@ if(!isset($_SESSION['user'])) {
         <div class="ambulancia">
             <h3>Ambulancia Medicalizada</h3>
             <h4>Placa: A32-03M</h4>
-            <img src="/img/logo.png" alt="">
+            <img src="/ambulancias-app/img/logo.png" alt="">
         </div>
         
         <div class="ambulancia">
             <h3>Ambulancia Medicalizada</h3>
             <h4>Placa: A32-03M</h4>
-            <img src="/img/logo.png" alt="">
+            <img src="/ambulancias-app/img/logo.png" alt="">
         </div>
 
         <div class="ambulancia">
             <h3>Ambulancia Medicalizada</h3>
             <h4>Placa: A32-03M</h4>
-            <img src="/img/logo.png" alt="">
+            <img src="/ambulancias-app/img/logo.png" alt="">
         </div>
 
         <div class="ambulancia">
             <h3>Ambulancia Medicalizada</h3>
             <h4>Placa: A32-03M</h4>
-            <img src="/img/logo.png" alt="">
+            <img src="/ambulancias-app/img/logo.png" alt="">
         </div>
 
         <div class="ambulancia">
             <h3>Ambulancia Medicalizada</h3>
             <h4>Placa: A32-03M</h4>
-            <img src="/img/logo.png" alt="">
+            <img src="/ambulancias-app/img/logo.png" alt="">
         </div>
 
         <div class="ambulancia">
             <h3>Ambulancia Medicalizada</h3>
             <h4>Placa: A32-03M</h4>
-            <img src="/img/logo.png" alt="">
+            <img src="/ambulancias-app/img/logo.png" alt="">
         </div>
     </section>
 </main>

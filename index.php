@@ -1,14 +1,16 @@
 <?php
 
+session_start();
+
 require 'model/conexion.php';
 require 'includes/rutas.php';
+include('./includes/header.php');
+
+
 
 $conexion = conectarDB();
-$ruta = rutas();
 
-if (isset($_SESSION['user'])) {
-    header('location: view/admin.php');
-}
+
 
 $errores = [];
 
@@ -59,9 +61,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-
-include('./includes/header.php');
-
 ?>
 
 <?php foreach ($errores as $error) : ?>
@@ -90,13 +89,6 @@ include('./includes/header.php');
     </form>
 
 </div>
-
-<?php
-
-    $hola = $_SERVER['SERVER_NAME'];
-    echo $hola;
-
-?>
 
 <main class="contenedor">
 
