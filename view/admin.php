@@ -11,7 +11,7 @@ if (!isset($_SESSION['login'])) {
     header('location: /ambulancias-app/');
 }
 
-$query = "SELECT nombre, registro_invima, lote, fecha_vencimiento FROM medicamentos ORDER BY fecha_vencimiento ASC";
+$query = "SELECT nombre, registro_invima, lote, fecha_vencimiento FROM medicamentos ORDER BY fecha_vencimiento ASC LIMIT 5";
 
 $respuesta = mysqli_query($conexion, $query);
 

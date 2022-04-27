@@ -8,7 +8,7 @@
 <script src="/ambulancias-app/js/moment.js"></script>
 
 <footer class="footer no-margin">
-    <div class="contenido-footer contenedor">
+    <div class="contenido-footer">
         <p>
             Todos los Derechos Reservados. E.S.E San Jose del Guaviare &copy;
         </p>

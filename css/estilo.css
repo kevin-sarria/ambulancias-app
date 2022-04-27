@@ -454,7 +454,41 @@ p {
 }
 
 
+/*----------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
 
+
+/* Insumos */
+.insumos {
+    margin: 22rem auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 30rem), 1fr) );
+    gap: 5rem;
+    
+}
+
+.tipo_insumo {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background-color: var(--grisClaro);
+    box-shadow: 2px 3px 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+
+.tipo_insumo h3 {
+    color: var(--rojoError);
+}
+
+.tipo_insumo img {
+    max-width: 100%;
+}
+
+.tipo_insumo:hover {
+    transform: scale(1.1);
+    transition: all 0.5s ease-in-out;
+}
 
 
 
@@ -466,8 +500,9 @@ p {
 
 .footer {
     background-color: var(--colorPrincipal);
-    bottom: 0;
     width: 100%;
+    bottom: 0;
+    margin-top: 10rem;
 }
 
 
@@ -480,16 +515,3 @@ p {
     padding: 2rem;
     width: 100%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
