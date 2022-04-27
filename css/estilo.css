@@ -413,21 +413,10 @@ p {
 /* Apartado Ambulancias */
 
 
-
-@media (min-width: 600px) {
-    .contenido__principal {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 5rem;
-    }
-}
-
-@media (min-width: 1024px) {
-    .contenido__principal {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 5rem;
-    }
+.contenido__principal {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 30rem), 1fr) );
+    gap: 5rem;
 }
 
 .ambulancia {
@@ -453,6 +442,13 @@ p {
     transition: all 0.3s ease;
 }
 
+.ambulancia h4 {
+    color: var(--negro);
+}
+
+.ambulancia h4:visited {
+    color: var(--negro);
+}
 
 /*----------------------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------*/

@@ -1,12 +1,12 @@
 CREATE DATABASE ambulancias_app
 
-CREATE TABLE ambulancia(id INT(3) AUTO_INCREMENT, placa VARCHAR(10) NOT NULL, id_tipo_ambulancia INT(3) NOT NULL, imgaen VARCHAR(300), PRIMARY KEY(id))
+CREATE TABLE ambulancia(id INT(3) AUTO_INCREMENT, placa VARCHAR(10) NOT NULL, id_tipo_ambulancia INT(3) NOT NULL, imagen VARCHAR(300), PRIMARY KEY(id))
 
 CREATE TABLE insumos(id INT0(3), id_tipo_insumo INT(3), id_medicamento INT(3), id_dispo_medicos INT(3), id_herramientas INT(3), id_ambulancia INT(3), PRIMARY KEY(id))
 
 CREATE TABLE tipos_insumo(id INT(3) AUTO_INCREMENT NOT NULL, nombre_tipo_insumo VARCHAR(30) NOT NULL, PRIMARY KEY(id))
 
-CREATE TABLE tipo_ambulancia(id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, id_ambulancia INT(3), PRIMARY KEY(id))
+CREATE TABLE tipo_ambulancia(id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, PRIMARY KEY(id))
 
 CREATE TABLE herramientas(id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, color VARCHAR(30), PRIMARY KEY(id))
 
@@ -21,6 +21,14 @@ INSERT INTO `users`(`correo`, `password`, `admin`, `user`) VALUES ('correo@corre
 INSERT INTO `medicamentos`(`nombre`, `tipo`, `lote`, `fecha_vencimiento`, `cantidad`, `registro_invima`) VALUES ('aceptaminofen','medicamento analgesico', '2020/12/10', '2022/12/10','30','INVIMA 2022M-0020337');
 
 INSERT INTO `medicamentos`(`nombre`, `tipo`, `lote`, `fecha_vencimiento`, `cantidad`, `registro_invima`) VALUES ('paracetamol','medicamento analgesico', '2020/12/10', '2022/12/10','30','INVIMA 2022M-0020337');
+
+ALTER TABLE ambulancia ADD FOREIGN KEY(id_tipo_ambulancia) REFERENCES tipo_ambulancia(id) ON UPDATE CASCADE ON DELETE CASCADE
+
+INSERT INTO `tipo_ambulancia`(`nombre`) VALUES ('Medicalizada')
+
+INSERT INTO `ambulancia`(`placa`, `id_tipo_ambulancia`, `imgaen`) VALUES ('A32-03M','1','/ambulancias-app/img/am1.jpg')
+
+INSERT INTO `ambulancia`(`placa`, `id_tipo_ambulancia`, `imgaen`) VALUES ('B56-03F','2','/ambulancias-app/img/am2.jpg')
 
 
 
