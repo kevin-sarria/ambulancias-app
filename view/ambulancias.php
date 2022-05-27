@@ -21,7 +21,7 @@ mysqli_fetch_assoc($respuesta);
 
         <?php foreach($respuesta as $ambulancia): ?>
         <div class="ambulancia">
-        <a href="#">
+        <a href="/ambulancias-app/view/ver_info_ambulancia.php">
             <h3>Ambulancia <?php echo $ambulancia['nombre']; ?></h3>
             <h4>Placa: <?php echo $ambulancia['placa']; ?></h4>
             <img src="<?php echo $ambulancia['imgaen']; ?>" alt="">
