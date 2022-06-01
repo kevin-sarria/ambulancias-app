@@ -10,12 +10,19 @@ include('../includes/header.php');
 include('../model/conexion.php');
 
 
+$conexion = conectarDB();
+$query = "SELECT * FROM `tipo_ambulancia`";
+$respuesta = mysqli_query($conexion, $query);
+
+mysqli_fetch_assoc($respuesta);
+
+
 $errores = [];
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $placa = $_POST['placa'];
     @$tipo_ambulancia = $_POST['tipo_ambulancia'];
-    $imagen = '/ambulancias-app/img/' . $_FILES['imagen']['name'];
+    $imagen = md5(uniqid(rand(), true)) . '.jpg';
 
     if(!$placa) {
         $errores[] = "Por favor ingresa la placa de la ambulancia<br>";
@@ -30,7 +37,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if(empty($errores)) {
-        move_uploaded_file($_FILES['imagen']['tmp_name'], '/ambulancias-app/img/');
+        move_uploaded_file($_FILES['imagen']['tmp_name'], '../img/' . $imagen);
+
+        $conexion = conectarDB();
+        $query = "INSERT INTO `ambulancia`(`placa`, `id_tipo_ambulancia`, `imgaen`) VALUES ('$placa','$tipo_ambulancia','/ambulancias-app/img/$imagen')";
+        $respuesta = mysqli_query($conexion, $query);
+
     }
 
 }
@@ -57,8 +69,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label for="tipo_ambulancia">Tipo de ambulancia</label>
         <select name="tipo_ambulancia" id="tipo_ambulancia">
             <option value="0" disabled selected>-- Seleccione una opción --</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
+            <?php foreach($respuesta as $r): ?>
+                <option value="<?php echo $r['id']; ?>">
+                    <?php echo $r['nombre']; ?>
+                </option>
+            <?php endforeach; ?>
+
         </select>
 
         <label for="imagen">Imagen de la ambulancia</label>
