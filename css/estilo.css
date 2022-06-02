@@ -168,6 +168,12 @@ p {
     color: var(--blanco);
 }
 
+.logo img {
+    max-width: 8rem;
+    max-height: 8rem;
+}
+
+
 .icono_menu {
     cursor: pointer;
     width: 6rem;

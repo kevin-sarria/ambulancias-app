@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-04-2022 a las 16:39:31
+-- Tiempo de generación: 02-06-2022 a las 16:18:21
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.1
 
@@ -40,7 +40,9 @@ CREATE TABLE `ambulancia` (
 
 INSERT INTO `ambulancia` (`id`, `placa`, `id_tipo_ambulancia`, `imgaen`) VALUES
 (1, 'A32-03M', 1, '/ambulancias-app/img/am1.jpg'),
-(3, 'B56-03F', 2, '/ambulancias-app/img/am2.jpg');
+(3, 'B56-03F', 2, '/ambulancias-app/img/am2.jpg'),
+(5, 'a32-mk0', 1, '/ambulancias-app/img/f39ab02ff3f1e8c356a9983ab0d63741.jpg'),
+(6, 'a32-mk0', 2, '/ambulancias-app/img/1ed3fdc3f84331c1cb50d54a0749be21.jpg');
 
 -- --------------------------------------------------------
 
@@ -225,7 +227,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `ambulancia`
 --
 ALTER TABLE `ambulancia`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `dispositivos_medicos`
