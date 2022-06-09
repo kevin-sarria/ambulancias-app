@@ -36,14 +36,7 @@
                 } ?>
                 <?php if (isset($_SESSION['user'])) {
                     echo '<a href="/ambulancias-app/view/admin.php">Inicio</a>';
-                } ?>
-                <?php if (isset($_SESSION['user'])) {
                     echo '<a href="/ambulancias-app/view/ambulancias.php">Ambulancias</a>';
-                } ?>
-                <?php if (isset($_SESSION['user'])) {
-                    echo '<a href="/ambulancias-app/view/insumos.php">Insumos</a>';
-                } ?>
-                <?php if (isset($_SESSION['user'])) {
                     echo '<a href="../cerrar_sesion.php">Cerrar Sesión</a>';
                 } ?>
             </nav>

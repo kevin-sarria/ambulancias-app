@@ -57,8 +57,15 @@ if (!isset($_SESSION['login'])) {
                     </div> <!-- Fin del contenedor que contiene los dispositivos medicos de la ambulancia -->
                 </div>
                 <div class="botones__ambulancia">
-                    <a class="editar__ambulancia" href="#">Editar</a>
-                    <a class="eliminar__ambulancia" href="#">Eliminar</a>
+                   
+                    <a class='editar__ambulancia' href='#'>Editar</a>
+                   
+                   <?php 
+                        if($_SESSION['user'] == 1) { 
+                            echo "<a class='eliminar__ambulancia' href='#'>Eliminar</a>";
+                        }
+                    ?>
+
                 </div>
                 
             </div> <!-- Fin del contenedor de los datos de los insumos -->

@@ -19,12 +19,19 @@ mysqli_fetch_assoc($respuesta);
 
 <section class="contenido__principal">
 
-    <div class="ambulancia">
-        <a href="/ambulancias-app/view/crear-ambulancia.php">
-            <h3>Nueva Ambulancia</h3>
-            <img src="/ambulancias-app/img/ambulancia.png" alt="">
-        </a>
-    </div>
+    <?php
+
+        if( $_SESSION['user'] == 1 ) {
+            echo "
+            <div class='ambulancia'>
+                <a href='/ambulancias-app/view/crear-ambulancia.php'>
+                    <h3>Nueva Ambulancia</h3>
+                    <img src='/ambulancias-app/img/ambulancia.png' alt=''>
+                </a>
+            </div>";
+        }
+
+    ?>
 
     <?php foreach ($respuesta as $ambulancia) : ?>
         <div class="ambulancia">

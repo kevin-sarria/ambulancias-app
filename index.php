@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 session_start();
 
                 // Llenamos el arreglo de la sesion
-                $_SESSION['user'] = $usuario['correo'];
+                $_SESSION['user'] = $usuario['admin'];
                 $_SESSION['login'] = true;
 
                 // Redireccionamos a la pagina deseada
