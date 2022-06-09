@@ -30,5 +30,13 @@ INSERT INTO `ambulancia`(`placa`, `id_tipo_ambulancia`, `imgaen`) VALUES ('A32-0
 
 INSERT INTO `ambulancia`(`placa`, `id_tipo_ambulancia`, `imgaen`) VALUES ('B56-03F','2','/ambulancias-app/img/am2.jpg')
 
+ALTER TABLE insumos ADD CONSTRAINT `fk_id_medicamento` FOREIGN KEY (id_medicamento) REFERENCES medicamentos(id)
 
+ALTER TABLE insumos ADD CONSTRAINT `fk_id_dispo_medico` FOREIGN KEY (id_dispo_medicos) REFERENCES dispositivos_medicos(id)
+
+ALTER TABLE insumos ADD CONSTRAINT `fk_id_herramienta` FOREIGN KEY (id_herramientas) REFERENCES herramientas(id)
+
+ALTER TABLE insumos ADD CONSTRAINT `fk_id_ambulancia` FOREIGN KEY (id_ambulancia) REFERENCES ambulancia(id)
+
+ALTER TABLE insumos ADD CONSTRAINT `fk_id_tipo_insumo` FOREIGN KEY (id_tipo_insumo) REFERENCES tipos_insumo(id)
 
