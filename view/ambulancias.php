@@ -34,13 +34,14 @@ mysqli_fetch_assoc($respuesta);
     ?>
 
     <?php foreach ($respuesta as $ambulancia) : ?>
-        <a href="/ambulancias-app/view/ver_info_ambulancia.php?id=<?php echo $ambulancia['id'] ?>">
+        
         <div class="ambulancia">
+            <a href="/ambulancias-app/view/ver_info_ambulancia.php?id=<?php echo $ambulancia['id'] ?>">
                 <h3>Ambulancia <?php echo $ambulancia['nombre']; ?></h3>
                 <h4>Placa: <?php echo $ambulancia['placa']; ?></h4>
                 <img src="<?php echo $ambulancia['imgaen']; ?>" alt="">
+            </a>
         </div>
-        </a>
     <?php endforeach; ?>
 
 
