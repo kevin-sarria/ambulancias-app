@@ -11,6 +11,8 @@
     --azulTitulos: #1ea2e4;
     --azulBotones: #1c9ada;
     --azulBotonesHover: #1da4e7;
+    --verdeBotones: #28DA39;
+    --verdeBotonesHover: #18CC2A;
     --negro: #020100;
     --gris: #dadada;
     --grisClaro: #eeeeee;
@@ -21,15 +23,6 @@
     --fuenteParrafos: 'Roboto', sans-serif;
     --fuenteTitulos: 'Akshar', sans-serif;
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -52,7 +45,6 @@ html {
 }
 
 body {
-    margin: 0;
     font-family: var(--fuenteParrafos);
     background-color: var(--blanco);
     font-size: 1.2rem;
@@ -111,6 +103,26 @@ p {
     margin-top: 15rem;
     max-width: 120rem;
     width: 90%;
+    min-height: 100vh;
+}
+
+/*----------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
+
+/* Utilidades */
+
+.btn_verde {
+    padding: 1rem;
+    font-size: 2rem;
+    border-radius: 1rem;
+    background-color: var(--verdeBotones);
+    color: var(--blanco);
+    font-weight: bold;
+}
+
+.btn_verde:hover {
+    background-color: var(--verdeBotonesHover);
 }
 
 
@@ -471,7 +483,6 @@ p {
 }
 
 .boton__volver img {
-    position: absolute;
     top: 12rem;
 }
 
@@ -579,6 +590,24 @@ p {
 }
 
 
+.btn__opciones__ambulancia {
+    display: block;
+    width: 70%;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    color: var(--blanco);
+    font-size: 2rem;
+    text-align: center;
+    margin: 3rem 0;
+    text-align: center;
+    background-color: var(--amarillo);
+}
+
+.btn__opciones__ambulancia:hover {
+    background-color: var(--amarilloClaro);
+}
+
+
 .editar__ambulancia {
     background-color: var(--amarillo);
 }
@@ -602,11 +631,11 @@ p {
 /* Insumos */
 
 .insumos {
-    margin: 22rem auto;
+    margin: 5rem auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 30rem), 1fr) );
     gap: 5rem;
-    
+    align-items: center;
 }
 
 .tipo_insumo {
@@ -631,6 +660,21 @@ p {
     transition: all 0.5s ease-in-out;
 }
 
+/*----------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
+
+/* Medicamentos */
+
+.btn_nuevo_medicamento {
+    display: flex;
+    justify-content: end;
+}
+
+.btn_nuevo_medicamento a {
+    margin: 0rem 2rem 5rem 0rem;
+}
+
 
 
 /*----------------------------------------------------------------------------------------------*/
@@ -643,7 +687,6 @@ p {
     background-color: var(--colorPrincipal);
     width: 100%;
     bottom: 0;
-    margin-top: 10rem;
 }
 
 

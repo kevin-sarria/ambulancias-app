@@ -38,6 +38,10 @@ mysqli_fetch_assoc($resultado);
         <div class="img__ver__ambulancia"><!-- Inicio del contenedor de la imagen -->
             <h3>Ambulancia Medicalizada</h3>
             <img src="<?php echo $r['imgaen']; ?>" alt="Foto Ambulancia">
+            <a href="<?php echo "./insumos.php?id=" . $id_ambulancia; ?>" class="btn__opciones__ambulancia">Ver Insumos</a>
+            <a href="" class="btn__opciones__ambulancia">Ver Documentos</a>
+            <a href="" class="btn__opciones__ambulancia">Links de aseo</a>
+            <a href="" class="btn__opciones__ambulancia">Links Kilometraje</a>
         </div> <!-- Fin del contenedor de la imagen -->
 
         <div class="texto__ver__ambulancia"><!-- Inicio de toda la informacion de la ambulancia -->

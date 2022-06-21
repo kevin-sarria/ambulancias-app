@@ -3,7 +3,6 @@
 session_start();
 
 require 'model/conexion.php';
-require 'includes/rutas.php';
 include('./includes/header.php');
 
 if(isset($_SESSION['login'])) {
