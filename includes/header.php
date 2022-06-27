@@ -39,6 +39,7 @@
                     echo '<a href="/ambulancias-app/view/ambulancias.php">Ambulancias</a>';
                     echo '<a href="../cerrar_sesion.php">Cerrar Sesión</a>';
                 } ?>
+                
             </nav>
 
             <img class="icono_menu" src="/ambulancias-app/img/menu.png" alt="Icono menu">

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-06-2022 a las 17:09:49
--- Versión del servidor: 10.4.22-MariaDB
--- Versión de PHP: 8.1.1
+-- Tiempo de generación: 28-06-2022 a las 00:06:44
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,19 +31,16 @@ CREATE TABLE `ambulancia` (
   `id` int(3) NOT NULL,
   `placa` varchar(10) NOT NULL,
   `id_tipo_ambulancia` int(3) NOT NULL,
-  `imgaen` varchar(300) DEFAULT NULL
+  `imagen` varchar(300) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `ambulancia`
 --
 
-INSERT INTO `ambulancia` (`id`, `placa`, `id_tipo_ambulancia`, `imgaen`) VALUES
-(1, 'A32-03M', 1, '/ambulancias-app/img/am1.jpg'),
-(3, 'B56-03F', 2, '/ambulancias-app/img/am2.jpg'),
-(5, 'a32-mk0', 1, '/ambulancias-app/img/f39ab02ff3f1e8c356a9983ab0d63741.jpg'),
-(6, 'a32-mk0', 2, '/ambulancias-app/img/1ed3fdc3f84331c1cb50d54a0749be21.jpg'),
-(7, 'sdff', 1, '/ambulancias-app/img/361f9a2db72a6a364ea8536a22454962.jpg');
+INSERT INTO `ambulancia` (`id`, `placa`, `id_tipo_ambulancia`, `imagen`) VALUES
+(3, 'B45-0KS', 1, '/ambulancias-app/img/e868e7d7c91b5a1f8df48fc9b5234eb4.jpg'),
+(4, 'A32-0MK', 2, '/ambulancias-app/img/19eb57b6dd2f68b9f65a67207c9f2085.jpg');
 
 -- --------------------------------------------------------
 
@@ -57,7 +54,19 @@ CREATE TABLE `dispositivos_medicos` (
   `cantidad` int(4) NOT NULL,
   `lote` varchar(30) NOT NULL,
   `fecha_vencimiento` date DEFAULT NULL,
-  `registro_invima` varchar(30) DEFAULT NULL
+  `registro_invima` varchar(30) DEFAULT NULL,
+  `id_ambulancia` int(3) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `dispositivos_medicos_default`
+--
+
+CREATE TABLE `dispositivos_medicos_default` (
+  `id` int(3) NOT NULL,
+  `nombre` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -69,22 +78,19 @@ CREATE TABLE `dispositivos_medicos` (
 CREATE TABLE `herramientas` (
   `id` int(3) NOT NULL,
   `nombre` varchar(30) NOT NULL,
-  `color` varchar(30) DEFAULT NULL
+  `color` varchar(30) DEFAULT NULL,
+  `id_ambulancia` int(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `insumos`
+-- Estructura de tabla para la tabla `herramientas_default`
 --
 
-CREATE TABLE `insumos` (
+CREATE TABLE `herramientas_default` (
   `id` int(3) NOT NULL,
-  `id_tipo_insumo` int(3) DEFAULT NULL,
-  `id_medicamento` int(3) DEFAULT NULL,
-  `id_dispo_medicos` int(3) DEFAULT NULL,
-  `id_herramientas` int(3) DEFAULT NULL,
-  `id_ambulancia` int(3) DEFAULT NULL
+  `nombre` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -96,36 +102,43 @@ CREATE TABLE `insumos` (
 CREATE TABLE `medicamentos` (
   `id` int(3) NOT NULL,
   `nombre` varchar(30) NOT NULL,
-  `tipo` varchar(30) NOT NULL,
-  `lote` date DEFAULT NULL,
+  `lote` varchar(30) DEFAULT NULL,
   `fecha_vencimiento` date DEFAULT NULL,
   `cantidad` int(3) DEFAULT NULL,
-  `registro_invima` varchar(30) DEFAULT NULL
+  `registro_invima` varchar(30) DEFAULT NULL,
+  `id_ambulancia` int(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `medicamentos`
 --
 
-INSERT INTO `medicamentos` (`id`, `nombre`, `tipo`, `lote`, `fecha_vencimiento`, `cantidad`, `registro_invima`) VALUES
-(4, 'aceptaminofen', 'medicamento analgesico', '2020-04-01', '2022-04-01', 30, 'INVIMA 2022M-0020337'),
-(5, 'paracetamol', 'medicamento analgesico', '2020-12-10', '2022-12-10', 30, 'INVIMA 2022M-0020337'),
-(6, 'paracetamol2', 'medicamento analgesico', '2020-12-10', '2022-12-10', 30, 'INVIMA 2022M-0020337'),
-(7, 'paracetamol3', 'medicamento analgesico', '2020-12-10', '2022-12-10', 30, 'INVIMA 2022M-0020337'),
-(8, 'paracetamol4', 'medicamento analgesico', '2020-12-10', '2022-12-10', 30, 'INVIMA 2022M-0020337'),
-(9, 'paracetamol5', 'medicamento analgesico', '2020-12-10', '2022-12-10', 30, 'INVIMA 2022M-0020337'),
-(10, 'paracetamol6', 'medicamento analgesico', '2020-12-10', '2022-12-10', 30, 'INVIMA 2022M-0020337');
+INSERT INTO `medicamentos` (`id`, `nombre`, `lote`, `fecha_vencimiento`, `cantidad`, `registro_invima`, `id_ambulancia`) VALUES
+(3, 'Paracetamol', 'CM91384811Z4', '2022-06-02', 12, 'INVIMA 2022M-0020337', 3),
+(4, 'Paracetamol', 'CM91384811Z4', '2022-06-03', 12, 'INVIMA 2022M-0020337', 3),
+(13, 'Aceptaminofen', 'CM91384811Z4', '2022-06-02', 12, 'INVIMA 2022M-0020337', 3),
+(14, 'Paracetamol', 'CM91384811Z4', '2022-06-04', 12, 'INVIMA 2022M-0020337', 3),
+(15, 'Aceptaminofen', 'CM91384811Z4', '2022-06-02', 12, 'INVIMA 2022M-0020337', 3),
+(16, 'Aceptaminofen', 'CM91384811Z4', '2022-06-16', 15, 'INVIMA 2022M-0020337', 3);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tipos_insumo`
+-- Estructura de tabla para la tabla `medicamentos_default`
 --
 
-CREATE TABLE `tipos_insumo` (
+CREATE TABLE `medicamentos_default` (
   `id` int(3) NOT NULL,
-  `nombre_tipo_insumo` varchar(30) NOT NULL
+  `nombre` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `medicamentos_default`
+--
+
+INSERT INTO `medicamentos_default` (`id`, `nombre`) VALUES
+(1, 'Paracetamol'),
+(2, 'Aceptaminofen');
 
 -- --------------------------------------------------------
 
@@ -144,7 +157,7 @@ CREATE TABLE `tipo_ambulancia` (
 
 INSERT INTO `tipo_ambulancia` (`id`, `nombre`) VALUES
 (1, 'Medicalizada'),
-(2, 'General');
+(2, 'Basica');
 
 -- --------------------------------------------------------
 
@@ -156,7 +169,6 @@ CREATE TABLE `users` (
   `id` int(3) NOT NULL,
   `correo` varchar(60) NOT NULL,
   `password` varchar(60) NOT NULL,
-  `admin` int(1) NOT NULL,
   `user` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -164,8 +176,9 @@ CREATE TABLE `users` (
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `correo`, `password`, `admin`, `user`) VALUES
-(2, 'correo@correo.com', '$2y$10$DBYdd7Nc6imuPMUwXZ63Q.gTdABhp8dlWnbExva.PHw8SsLEv7rli', 1, 0);
+INSERT INTO `users` (`id`, `correo`, `password`, `user`) VALUES
+(2, 'correo@correo.com', '$2y$10$bvO.YFvPy1yyARtw2Omn.e.mxHXF6eMMI2tul6CfijqbmbRtHidAu', 1),
+(3, 'correo2@correo.com', '$2y$10$l12qt.pddPpnQeZ1rlKGSOkhHnL4kQKWirPtFt7OK6ErLrZ0DnWj2', 0);
 
 --
 -- Índices para tablas volcadas
@@ -182,35 +195,39 @@ ALTER TABLE `ambulancia`
 -- Indices de la tabla `dispositivos_medicos`
 --
 ALTER TABLE `dispositivos_medicos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_dispo_medico` (`id_ambulancia`);
+
+--
+-- Indices de la tabla `dispositivos_medicos_default`
+--
+ALTER TABLE `dispositivos_medicos_default`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `herramientas`
 --
 ALTER TABLE `herramientas`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_herramienta` (`id_ambulancia`);
 
 --
--- Indices de la tabla `insumos`
+-- Indices de la tabla `herramientas_default`
 --
-ALTER TABLE `insumos`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_id_medicamento` (`id_medicamento`),
-  ADD KEY `fk_id_dispo_medico` (`id_dispo_medicos`),
-  ADD KEY `fk_id_herramienta` (`id_herramientas`),
-  ADD KEY `fk_id_ambulancia` (`id_ambulancia`),
-  ADD KEY `fk_id_tipo_insumo` (`id_tipo_insumo`);
+ALTER TABLE `herramientas_default`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `medicamentos`
 --
 ALTER TABLE `medicamentos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_medicamento` (`id_ambulancia`);
 
 --
--- Indices de la tabla `tipos_insumo`
+-- Indices de la tabla `medicamentos_default`
 --
-ALTER TABLE `tipos_insumo`
+ALTER TABLE `medicamentos_default`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -233,12 +250,18 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `ambulancia`
 --
 ALTER TABLE `ambulancia`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `dispositivos_medicos`
 --
 ALTER TABLE `dispositivos_medicos`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `dispositivos_medicos_default`
+--
+ALTER TABLE `dispositivos_medicos_default`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
 
 --
@@ -248,16 +271,22 @@ ALTER TABLE `herramientas`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `herramientas_default`
+--
+ALTER TABLE `herramientas_default`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `medicamentos`
 --
 ALTER TABLE `medicamentos`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT de la tabla `tipos_insumo`
+-- AUTO_INCREMENT de la tabla `medicamentos_default`
 --
-ALTER TABLE `tipos_insumo`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `medicamentos_default`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_ambulancia`
@@ -269,7 +298,7 @@ ALTER TABLE `tipo_ambulancia`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
@@ -282,14 +311,22 @@ ALTER TABLE `ambulancia`
   ADD CONSTRAINT `ambulancia_ibfk_1` FOREIGN KEY (`id_tipo_ambulancia`) REFERENCES `tipo_ambulancia` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `insumos`
+-- Filtros para la tabla `dispositivos_medicos`
 --
-ALTER TABLE `insumos`
-  ADD CONSTRAINT `fk_id_ambulancia` FOREIGN KEY (`id_ambulancia`) REFERENCES `ambulancia` (`id`),
-  ADD CONSTRAINT `fk_id_dispo_medico` FOREIGN KEY (`id_dispo_medicos`) REFERENCES `dispositivos_medicos` (`id`),
-  ADD CONSTRAINT `fk_id_herramienta` FOREIGN KEY (`id_herramientas`) REFERENCES `herramientas` (`id`),
-  ADD CONSTRAINT `fk_id_medicamento` FOREIGN KEY (`id_medicamento`) REFERENCES `medicamentos` (`id`),
-  ADD CONSTRAINT `fk_id_tipo_insumo` FOREIGN KEY (`id_tipo_insumo`) REFERENCES `tipos_insumo` (`id`);
+ALTER TABLE `dispositivos_medicos`
+  ADD CONSTRAINT `fk_dispo_medico` FOREIGN KEY (`id_ambulancia`) REFERENCES `ambulancia` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `herramientas`
+--
+ALTER TABLE `herramientas`
+  ADD CONSTRAINT `fk_herramienta` FOREIGN KEY (`id_ambulancia`) REFERENCES `ambulancia` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `medicamentos`
+--
+ALTER TABLE `medicamentos`
+  ADD CONSTRAINT `fk_medicamento` FOREIGN KEY (`id_ambulancia`) REFERENCES `ambulancia` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

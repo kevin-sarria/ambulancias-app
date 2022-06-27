@@ -103,7 +103,7 @@ p {
     margin-top: 15rem;
     max-width: 120rem;
     width: 90%;
-    min-height: 100vh;
+    min-height: 70vh;
 }
 
 /*----------------------------------------------------------------------------------------------*/
@@ -687,6 +687,7 @@ p {
     background-color: var(--colorPrincipal);
     width: 100%;
     bottom: 0;
+    margin-top: 5rem;
 }
 
 

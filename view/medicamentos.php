@@ -14,7 +14,7 @@ $id_ambulancia = $_GET['id'];
 
 $conexion = conectarDB();
 
-$query = "SELECT * FROM medicamentos WHERE id='$id_ambulancia'";
+$query = "SELECT * FROM medicamentos WHERE id_ambulancia='$id_ambulancia'";
 
 $resultado = mysqli_query($conexion, $query);
 

@@ -8,6 +8,7 @@ if (!isset($_SESSION['login'])) {
 
 include('../includes/header.php');
 include('../model/conexion.php');
+include('../model/rutas.php');
 
 
 $conexion = conectarDB();
@@ -23,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $placa = $_POST['placa'];
     @$tipo_ambulancia = $_POST['tipo_ambulancia'];
     $imagen = md5(uniqid(rand(), true)) . '.jpg';
+    $ubicacion_imagen = $carpeta_imagen . $imagen;
 
     if (!$placa) {
         $errores[] = "Por favor ingresa la placa de la ambulancia<br>";
@@ -45,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         move_uploaded_file($_FILES['imagen']['tmp_name'], '../img/' . $imagen);
 
         $conexion = conectarDB();
-        $query = "INSERT INTO `ambulancia`(`placa`, `id_tipo_ambulancia`, `imgaen`) VALUES ('$placa','$tipo_ambulancia','/ambulancias-app/img/$imagen')";
+        $query = "INSERT INTO `ambulancia`(`placa`, `id_tipo_ambulancia`, `imagen`) VALUES ('$placa','$tipo_ambulancia', '$ubicacion_imagen')";
         $respuesta = mysqli_query($conexion, $query);
     }
 }

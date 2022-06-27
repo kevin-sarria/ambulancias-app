@@ -2,39 +2,32 @@ CREATE DATABASE ambulancias_app
 
 CREATE TABLE ambulancia(id INT(3) AUTO_INCREMENT, placa VARCHAR(10) NOT NULL, id_tipo_ambulancia INT(3) NOT NULL, imagen VARCHAR(300), PRIMARY KEY(id))
 
-CREATE TABLE tipos_insumo(id INT(3) AUTO_INCREMENT NOT NULL, nombre_tipo_insumo VARCHAR(30) NOT NULL, PRIMARY KEY(id))
-
 CREATE TABLE tipo_ambulancia(id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, PRIMARY KEY(id))
 
-CREATE TABLE herramientas(id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, color VARCHAR(30), PRIMARY KEY(id))
+CREATE TABLE herramientas(id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, color VARCHAR(30), id_ambulancia INT(3), PRIMARY KEY(id))
 
-CREATE TABLE medicamentos(id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, tipo INT(3) NOT NULL, lote VARCHAR(30), fecha_vencimiento DATE, cantidad INT(3), registro_invima VARCHAR(30), PRIMARY KEY(id))
+CREATE TABLE medicamentos(id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, lote VARCHAR(30), fecha_vencimiento DATE, cantidad INT(3), registro_invima VARCHAR(30), id_ambulancia INT(3), PRIMARY KEY(id))
 
-CREATE TABLE dispositivos_medicos(id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(60) NOT NULL, cantidad INT(4) NOT NULL, lote VARCHAR(30) NOT NULL, fecha_vencimiento DATE, registro_invima VARCHAR(30), PRIMARY KEY(id))
+CREATE TABLE dispositivos_medicos(id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(60) NOT NULL, cantidad INT(4) NOT NULL, lote VARCHAR(30) NOT NULL, fecha_vencimiento DATE, registro_invima VARCHAR(30), id_ambulancia INT(3), PRIMARY KEY(id))
 
-CREATE TABLE users(id INT(3) AUTO_INCREMENT NOT NULL, correo VARCHAR(60) NOT NULL, password VARCHAR(60) NOT NULL, admin INT(1) NOT NULL, user INT(1) NOT NULL, PRIMARY KEY(id))
+CREATE TABLE users(id INT(3) AUTO_INCREMENT NOT NULL, correo VARCHAR(60) NOT NULL, password VARCHAR(60) NOT NULL, user INT(1) NOT NULL, PRIMARY KEY(id))
 
-INSERT INTO `users`(`correo`, `password`, `admin`, `user`) VALUES ('correo@correo.com','12345678','1','1')
+INSERT INTO `medicamentos`(`nombre`, `lote`, `fecha_vencimiento`, `cantidad`, `registro_invima`) VALUES ('aceptaminofen', '2020/12/10', '2022/12/10','30','INVIMA 2022M-0020337');
 
-INSERT INTO `medicamentos`(`nombre`, `tipo`, `lote`, `fecha_vencimiento`, `cantidad`, `registro_invima`) VALUES ('aceptaminofen','medicamento analgesico', '2020/12/10', '2022/12/10','30','INVIMA 2022M-0020337');
-
-INSERT INTO `medicamentos`(`nombre`, `tipo`, `lote`, `fecha_vencimiento`, `cantidad`, `registro_invima`) VALUES ('paracetamol','medicamento analgesico', '2020/12/10', '2022/12/10','30','INVIMA 2022M-0020337');
+INSERT INTO `medicamentos`(`nombre`, `lote`, `fecha_vencimiento`, `cantidad`, `registro_invima`) VALUES ('paracetamol', '2020/12/10', '2022/12/10','30','INVIMA 2022M-0020337');
 
 ALTER TABLE ambulancia ADD FOREIGN KEY(id_tipo_ambulancia) REFERENCES tipo_ambulancia(id) ON UPDATE CASCADE ON DELETE CASCADE
 
 INSERT INTO `tipo_ambulancia`(`nombre`) VALUES ('Medicalizada')
 
-INSERT INTO `ambulancia`(`placa`, `id_tipo_ambulancia`, `imgaen`) VALUES ('A32-03M','1','/ambulancias-app/img/am1.jpg')
+ALTER TABLE medicamentos ADD CONSTRAINT `fk_medicamento` FOREIGN KEY (id_ambulancia) REFERENCES ambulancia(id) ON UPDATE CASCADE ON DELETE CASCADE
 
-INSERT INTO `ambulancia`(`placa`, `id_tipo_ambulancia`, `imgaen`) VALUES ('B56-03F','2','/ambulancias-app/img/am2.jpg')
+ALTER TABLE dispositivos_medicos ADD CONSTRAINT `fk_dispo_medico` FOREIGN KEY (id_ambulancia) REFERENCES ambulancia(id) ON UPDATE CASCADE ON DELETE CASCADE
 
-ALTER TABLE insumos ADD CONSTRAINT `fk_id_medicamento` FOREIGN KEY (id_medicamento) REFERENCES medicamentos(id)
+ALTER TABLE herramientas ADD CONSTRAINT `fk_herramienta` FOREIGN KEY (id_ambulancia) REFERENCES ambulancia(id) ON UPDATE CASCADE ON DELETE CASCADE
 
-ALTER TABLE insumos ADD CONSTRAINT `fk_id_dispo_medico` FOREIGN KEY (id_dispo_medicos) REFERENCES dispositivos_medicos(id)
+CREATE TABLE medicamentos_default( id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, PRIMARY KEY(id) );
 
-ALTER TABLE insumos ADD CONSTRAINT `fk_id_herramienta` FOREIGN KEY (id_herramientas) REFERENCES herramientas(id)
+CREATE TABLE herramientas_default( id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, PRIMARY KEY(id))
 
-ALTER TABLE insumos ADD CONSTRAINT `fk_id_ambulancia` FOREIGN KEY (id_ambulancia) REFERENCES ambulancia(id)
-
-ALTER TABLE insumos ADD CONSTRAINT `fk_id_tipo_insumo` FOREIGN KEY (id_tipo_insumo) REFERENCES tipos_insumo(id)
-
+CREATE TABLE dispositivos_medicos_default( id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, PRIMARY KEY(id))

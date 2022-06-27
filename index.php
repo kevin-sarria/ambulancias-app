@@ -4,9 +4,10 @@ session_start();
 
 require 'model/conexion.php';
 include('./includes/header.php');
+include('model/rutas.php');
 
 if(isset($_SESSION['login'])) {
-    header('location: /ambulancias-app/view/admin.php');
+    header('location:' . $carpeta_vistas . 'admin.php');
 }
 
 $conexion = conectarDB();
@@ -47,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 session_start();
 
                 // Llenamos el arreglo de la sesion
-                $_SESSION['user'] = $usuario['admin'];
+                $_SESSION['user'] = $usuario['user'];
                 $_SESSION['login'] = true;
 
                 // Redireccionamos a la pagina deseada

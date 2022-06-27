@@ -16,7 +16,7 @@ $conexion = conectarDB();
 $id_ambulancia = $_GET['id'];
 
 // Escribimos la consulta para luego usarla y traer los datos
-$query = "SELECT placa, imgaen, nombre FROM ambulancia A JOIN tipo_ambulancia TA ON A.id_tipo_ambulancia = TA.id WHERE A.id = $id_ambulancia";
+$query = "SELECT placa, imagen, nombre FROM ambulancia A JOIN tipo_ambulancia TA ON A.id_tipo_ambulancia = TA.id WHERE A.id = $id_ambulancia";
 
 $resultado = mysqli_query($conexion, $query);
 
@@ -37,7 +37,7 @@ mysqli_fetch_assoc($resultado);
 
         <div class="img__ver__ambulancia"><!-- Inicio del contenedor de la imagen -->
             <h3>Ambulancia Medicalizada</h3>
-            <img src="<?php echo $r['imgaen']; ?>" alt="Foto Ambulancia">
+            <img src="<?php echo $r['imagen']; ?>" alt="Foto Ambulancia">
             <a href="<?php echo "./insumos.php?id=" . $id_ambulancia; ?>" class="btn__opciones__ambulancia">Ver Insumos</a>
             <a href="" class="btn__opciones__ambulancia">Ver Documentos</a>
             <a href="" class="btn__opciones__ambulancia">Links de aseo</a>
