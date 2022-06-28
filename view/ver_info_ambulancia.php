@@ -15,14 +15,26 @@ $conexion = conectarDB();
 // Obtenemos el id de la ambulancia mediante la URL
 $id_ambulancia = $_GET['id'];
 
-// Escribimos la consulta para luego usarla y traer los datos
+// Escribimos la consulta para luego usarla y traer los datos basicos de la ambulancia
 $query = "SELECT placa, imagen, nombre FROM ambulancia A JOIN tipo_ambulancia TA ON A.id_tipo_ambulancia = TA.id WHERE A.id = $id_ambulancia";
 
 $resultado = mysqli_query($conexion, $query);
 
 mysqli_fetch_assoc($resultado);
 
+// Escribimos una segunda consulta para traer los datos de los medicametos que tiene la ambulancia
+$query_med = "SELECT * FROM medicamentos WHERE id_ambulancia='$id_ambulancia'";
 
+$result_med = mysqli_query($conexion, $query_med);
+
+mysqli_fetch_assoc($result_med);
+
+// Escribimos una tercera consulta para traer los datos de los dispositivos medicos que tiene la ambulancia
+$query_disp = "SELECT * FROM dispositivos_medicos WHERE id_ambulancia='$id_ambulancia'";
+
+$result_disp = mysqli_query($conexion, $query_disp);
+
+mysqli_fetch_assoc($result_disp);
 
 
 ?>
@@ -66,16 +78,50 @@ mysqli_fetch_assoc($resultado);
                 <div class="info__divs__insumos"> <!-- Inicio del contenedor que contiene los medicamentos de la ambulancia -->
                     <div class="medicamentos__ambulancia">
                         <h4>Medicamentos</h4>
-                        <p>x30 Pastillas Aceptaminofen</p>
-                        <p>x30 Pastillas Aceptaminofen</p>
-                        <p>x30 Pastillas Aceptaminofen</p>
+
+                        <?php
+                        
+                        if( $result_med->num_rows ):
+
+                        foreach($result_med as $result): ?>
+                        
+                        <p> x <?php echo $result['cantidad'];?> <?php echo $result['nombre']; ?> </p>
+
+                        <?php 
+                    
+                            endforeach;
+                            
+                        else:
+                            echo '<p class="neutro">Por favor, Registra información</p>';
+
+                        endif;
+                        ?>
+
+
+
                     </div> <!-- Fin del contenedor que contiene los medicamentos de la ambulancia -->
 
                     <div class="dispositivos__medicos__ambulancia"> <!-- Inicio del contenedor que contiene los dispositivos medicos de la ambulancia -->
                         <h4>Dispositivos Medicos</h4>
-                        <p>x20 Jeringas 5mm</p>
-                        <p>x20 Jeringas 5mm</p>
-                        <p>x20 Jeringas 5mm</p>
+
+                        <?php
+                        
+                        if( $result_disp->num_rows ):
+                        
+                        foreach( $result_disp as $disp_med  ): ?>
+
+                        <p>x<?php echo $disp_med['cantidad']; ?> <?php echo $disp_med['nombre']; ?></p>
+
+                        <?php 
+                    
+                            endforeach;
+                            
+                        else:
+                            echo '<p class="neutro">Por favor, Registra información</p>';
+
+                        endif;
+                        ?>
+
                     </div> <!-- Fin del contenedor que contiene los dispositivos medicos de la ambulancia -->
                 </div>
                 <div class="botones__ambulancia">

@@ -33,6 +33,9 @@ mysqli_fetch_assoc($resultado);
         <a href="./registrar_medicamento.php?id=<?php echo $id_ambulancia; ?>" class="btn_verde">+Nuevo Medicamento</a>
     </div>
 
+
+<?php if ($resultado->num_rows) : ?>
+
     <div class="contenedor__inicio__admin">
         <h2>Medicamentos</h2>
 
@@ -58,6 +61,10 @@ mysqli_fetch_assoc($resultado);
             </tbody>
         </table>
     </div>
+    <?php else : echo '<div class="alerta neutro">Por favor Registra Información</div>' ?>
+
+<?php endif; ?>
+<!-- Termina condicional si tiene información -->
 </section>
 
 

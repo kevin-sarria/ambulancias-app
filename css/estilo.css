@@ -125,6 +125,23 @@ p {
     background-color: var(--verdeBotonesHover);
 }
 
+.alerta {
+    max-width: 80%;
+    color: var(--blanco);
+    padding: 0.5rem;
+    margin: 2rem auto;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.error {
+    background-color: var(--rojoError);
+}
+
+.neutro {
+    color: var(--grisTextos);
+    font-weight: bold;
+}
 
 
 /*----------------------------------------------------------------------------------------------*/
@@ -314,18 +331,7 @@ p {
 }
 
 
-.alerta {
-    max-width: 80%;
-    color: var(--blanco);
-    padding: 0.5rem;
-    margin: 2rem auto;
-    text-align: center;
-    font-size: 2rem;
-}
 
-.error {
-    background-color: var(--rojoError);
-}
 
 /*----------------------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------*/

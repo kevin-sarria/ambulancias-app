@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-06-2022 a las 00:06:44
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Tiempo de generación: 28-06-2022 a las 16:26:22
+-- Versión del servidor: 10.4.22-MariaDB
+-- Versión de PHP: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -58,6 +58,13 @@ CREATE TABLE `dispositivos_medicos` (
   `id_ambulancia` int(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `dispositivos_medicos`
+--
+
+INSERT INTO `dispositivos_medicos` (`id`, `nombre`, `cantidad`, `lote`, `fecha_vencimiento`, `registro_invima`, `id_ambulancia`) VALUES
+(2, 'Cuello Ortopedico', 2, 'CM91384811Z4', '2022-06-23', 'INVIMA 2022M-0020337', 3);
+
 -- --------------------------------------------------------
 
 --
@@ -69,6 +76,15 @@ CREATE TABLE `dispositivos_medicos_default` (
   `nombre` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `dispositivos_medicos_default`
+--
+
+INSERT INTO `dispositivos_medicos_default` (`id`, `nombre`) VALUES
+(1, 'Cuello Ortopedico'),
+(2, 'Bomba de Aire'),
+(3, 'Jeringa');
+
 -- --------------------------------------------------------
 
 --
@@ -78,9 +94,17 @@ CREATE TABLE `dispositivos_medicos_default` (
 CREATE TABLE `herramientas` (
   `id` int(3) NOT NULL,
   `nombre` varchar(30) NOT NULL,
+  `cantidad` int(3) DEFAULT NULL,
   `color` varchar(30) DEFAULT NULL,
   `id_ambulancia` int(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `herramientas`
+--
+
+INSERT INTO `herramientas` (`id`, `nombre`, `cantidad`, `color`, `id_ambulancia`) VALUES
+(1, 'Destornillador de Estrella', 1, 'rojo', 3);
 
 -- --------------------------------------------------------
 
@@ -92,6 +116,15 @@ CREATE TABLE `herramientas_default` (
   `id` int(3) NOT NULL,
   `nombre` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `herramientas_default`
+--
+
+INSERT INTO `herramientas_default` (`id`, `nombre`) VALUES
+(1, 'Destornillador de Estrella'),
+(2, 'Gato Hidraulico'),
+(3, 'Alicate de Punta');
 
 -- --------------------------------------------------------
 
@@ -256,31 +289,31 @@ ALTER TABLE `ambulancia`
 -- AUTO_INCREMENT de la tabla `dispositivos_medicos`
 --
 ALTER TABLE `dispositivos_medicos`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `dispositivos_medicos_default`
 --
 ALTER TABLE `dispositivos_medicos_default`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `herramientas`
 --
 ALTER TABLE `herramientas`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `herramientas_default`
 --
 ALTER TABLE `herramientas_default`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `medicamentos`
 --
 ALTER TABLE `medicamentos`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `medicamentos_default`

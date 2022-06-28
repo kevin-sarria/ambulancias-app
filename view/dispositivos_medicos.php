@@ -26,39 +26,45 @@ mysqli_fetch_assoc($resultado);
 
 <section class="inicio__admin">
 
-<a href="./insumos.php?id=<?php echo $id_ambulancia; ?>" class="boton__volver">
-    <img src="<?php echo $carpeta_imagen . 'volver.png';?>" alt="img volver">
-</a>
+    <a href="./insumos.php?id=<?php echo $id_ambulancia; ?>" class="boton__volver">
+        <img src="<?php echo $carpeta_imagen . 'volver.png'; ?>" alt="img volver">
+    </a>
 
     <div class="btn_nuevo_medicamento">
         <a href="./registrar_dispositivo_medico.php?id=<?php echo $id_ambulancia; ?>" class="btn_verde">+Nuevo Dispositivo Medico</a>
     </div>
 
-    <div class="contenedor__inicio__admin">
-        <h2>Dispositivos Medicos</h2>
+    <?php if ($resultado->num_rows) : ?>
 
-        <table class="tabla_inicio_admin">
-            <thead>
-                <tr>
-                    <td>Nombre</td>
-                    <td>Registro Invima</td>
-                    <td>Lote</td>
-                    <td>Fecha Vencimiento</td>
-                </tr>
-            </thead>
+        <div class="contenedor__inicio__admin">
+            <h2>Dispositivos Medicos</h2>
 
-            <tbody>
-                <?php foreach ($resultado as $datos) : ?>
+            <table class="tabla_inicio_admin">
+                <thead>
                     <tr>
-                        <th data-label="Nombre"><?php echo $datos['nombre']; ?></th>
-                        <th data-label="Registro invima"><?php echo $datos['registro_invima']; ?></th>
-                        <th data-label="Lote" class="fecha_lote"><?php echo $datos['lote']; ?></th>
-                        <th data-label="Fecha Vencimiento" class="fecha_vencimiento"><?php echo $datos['fecha_vencimiento']; ?></th>
+                        <td>Nombre</td>
+                        <td>Registro Invima</td>
+                        <td>Lote</td>
+                        <td>Fecha Vencimiento</td>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
+                </thead>
+
+                <tbody>
+                    <?php foreach ($resultado as $datos) : ?>
+                        <tr>
+                            <th data-label="Nombre"><?php echo $datos['nombre']; ?></th>
+                            <th data-label="Registro invima"><?php echo $datos['registro_invima']; ?></th>
+                            <th data-label="Lote" class="fecha_lote"><?php echo $datos['lote']; ?></th>
+                            <th data-label="Fecha Vencimiento" class="fecha_vencimiento"><?php echo $datos['fecha_vencimiento']; ?></th>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    <?php else : echo '<div class="alerta neutro">Por favor Registra Información</div>' ?>
+
+    <?php endif; ?>
+    <!-- Termina condicional si tiene información -->
 </section>
 
 

@@ -4,7 +4,7 @@ CREATE TABLE ambulancia(id INT(3) AUTO_INCREMENT, placa VARCHAR(10) NOT NULL, id
 
 CREATE TABLE tipo_ambulancia(id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, PRIMARY KEY(id))
 
-CREATE TABLE herramientas(id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, color VARCHAR(30), id_ambulancia INT(3), PRIMARY KEY(id))
+CREATE TABLE herramientas(id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, cantidad INT(3), color VARCHAR(30), id_ambulancia INT(3), PRIMARY KEY(id))
 
 CREATE TABLE medicamentos(id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, lote VARCHAR(30), fecha_vencimiento DATE, cantidad INT(3), registro_invima VARCHAR(30), id_ambulancia INT(3), PRIMARY KEY(id))
 
@@ -31,3 +31,15 @@ CREATE TABLE medicamentos_default( id INT(3) AUTO_INCREMENT NOT NULL, nombre VAR
 CREATE TABLE herramientas_default( id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, PRIMARY KEY(id))
 
 CREATE TABLE dispositivos_medicos_default( id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, PRIMARY KEY(id))
+
+INSERT INTO `dispositivos_medicos_default`(`nombre`) VALUES ('Cuello Ortopedico')
+
+INSERT INTO `dispositivos_medicos_default`(`nombre`) VALUES ('Bomba de Aire')
+
+INSERT INTO `dispositivos_medicos_default`(`nombre`) VALUES ('Jeringa')
+
+INSERT INTO `herramientas_default`(`nombre`) VALUES ('Destornillador de Estrella')
+
+INSERT INTO `herramientas_default`(`nombre`) VALUES ('Gato Hidraulico')
+
+INSERT INTO `herramientas_default`(`nombre`) VALUES ('Alicate de Punta')
