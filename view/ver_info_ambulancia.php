@@ -4,6 +4,7 @@ session_start();
 
 include('../includes/header.php');
 include('../model/conexion.php');
+include('../model/rutas.php');
 
 if (!isset($_SESSION['login'])) {
     header('location: /ambulancias-app/');
@@ -52,7 +53,7 @@ mysqli_fetch_assoc($result_disp);
             <img src="<?php echo $r['imagen']; ?>" alt="Foto Ambulancia">
             <a href="<?php echo "./insumos.php?id=" . $id_ambulancia; ?>" class="btn__opciones__ambulancia">Ver Insumos</a>
             <a href="" class="btn__opciones__ambulancia">Ver Documentos</a>
-            <a href="" class="btn__opciones__ambulancia">Links de aseo</a>
+            <a href="<?php echo $carpeta_vistas . 'links_aseo.php'; ?>" class="btn__opciones__ambulancia">Links de aseo</a>
             <a href="" class="btn__opciones__ambulancia">Links Kilometraje</a>
         </div> <!-- Fin del contenedor de la imagen -->
 
@@ -124,13 +125,13 @@ mysqli_fetch_assoc($result_disp);
 
                     </div> <!-- Fin del contenedor que contiene los dispositivos medicos de la ambulancia -->
                 </div>
-                <div class="botones__ambulancia">
+                <div class="botones botones__ambulancia">
                    
-                    <a class='editar__ambulancia' href='#'>Editar</a>
+                    <a class='btn_amarillo' href='#'>Editar</a>
                    
                    <?php 
                         if($_SESSION['user'] == 1) { 
-                            echo "<a class='eliminar__ambulancia' href='#'>Eliminar</a>";
+                            echo "<a class='btn_rojo' href='#'>Eliminar</a>";
                         }
                     ?>
 
