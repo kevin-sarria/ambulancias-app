@@ -749,6 +749,8 @@ p {
     font-weight: bold;
     font-size: 1.5rem;
     margin: 0 auto;
+    color: var(--grisTitulos);
+    text-decoration: none;
 }
 
 .link a:visited {

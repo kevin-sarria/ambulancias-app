@@ -44,6 +44,6 @@ INSERT INTO `herramientas_default`(`nombre`) VALUES ('Gato Hidraulico')
 
 INSERT INTO `herramientas_default`(`nombre`) VALUES ('Alicate de Punta')
 
-CREATE TABLE links_aseo(id INT(3) AUTO_INCREMENT NOT NULL, link TEXT NOT NULL, id_ambulancia INT(3) NOT NULL, PRIMARY KEY(id))
+CREATE TABLE links_aseo(id INT(3) AUTO_INCREMENT NOT NULL, nombre_link VARCHAR(30), link TEXT NOT NULL, id_ambulancia INT(3) NOT NULL, PRIMARY KEY(id))
 
 ALTER TABLE links_aseo ADD CONSTRAINT `fk_links_aseo` FOREIGN KEY (id_ambulancia) REFERENCES ambulancia(id) ON UPDATE CASCADE ON DELETE CASCADE
