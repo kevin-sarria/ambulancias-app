@@ -36,6 +36,10 @@
 
 ?>
 
+<div class="volver">
+    <a href="<?php echo $carpeta_vistas . 'links_aseo.php?id=' . $id_ambulancia ?>"><img src="<?php echo $carpeta_imagen . 'volver.png' ?>" alt="imagen volver"></a>
+</div>
+
 
 <form action="#" method="POST" class="formulario">
 

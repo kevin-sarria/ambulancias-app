@@ -23,6 +23,10 @@ mysqli_fetch_assoc($resultado);
 
 ?>
 
+<div class="volver">
+    <a href="<?php echo $carpeta_vistas . 'ver_info_ambulancia.php?id=' . $id_ambulancia ?>"><img src="<?php echo $carpeta_imagen . 'volver.png' ?>" alt="imagen volver"></a>
+</div>
+
 <?php foreach( $resultado as $result ): ?>
 
 <div class="links__aseo">
@@ -40,7 +44,7 @@ mysqli_fetch_assoc($resultado);
             <div class="botones">
                 <div class="botones__links grid-2-column">
                     <a href="<?php echo './editar_link_aseo.php?id=' . $id_ambulancia . '&id-link-aseo=' . $result['id']; ?>" class="editar__link btn_amarillo">Editar</a>
-                    <a href="#" class="borrar__link btn_rojo">Borrar</a>
+                    <a href="<?php echo './borrar_link_aseo.php?id=' . $id_ambulancia . '&id-link-aseo=' . $result['id']; ?>" class="borrar__link btn_rojo">Borrar</a>
                 </div>
 
             </div>
