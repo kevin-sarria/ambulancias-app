@@ -54,7 +54,7 @@ mysqli_fetch_assoc($result_disp);
             <a href="<?php echo "./insumos.php?id=" . $id_ambulancia; ?>" class="btn__opciones__ambulancia">Ver Insumos</a>
             <a href="" class="btn__opciones__ambulancia">Ver Documentos</a>
             <a href="<?php echo $carpeta_vistas . 'links_aseo.php?id=' . $id_ambulancia; ?>" class="btn__opciones__ambulancia">Links de aseo</a>
-            <a href="" class="btn__opciones__ambulancia">Links Kilometraje</a>
+            <a href="<?php echo $carpeta_vistas . 'links_kilometraje.php?id=' . $id_ambulancia; ?>" class="btn__opciones__ambulancia">Links Kilometraje</a>
         </div> <!-- Fin del contenedor de la imagen -->
 
         <div class="texto__ver__ambulancia"><!-- Inicio de toda la informacion de la ambulancia -->
