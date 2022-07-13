@@ -51,3 +51,7 @@ ALTER TABLE links_aseo ADD CONSTRAINT `fk_links_aseo` FOREIGN KEY (id_ambulancia
 CREATE TABLE links_kilometraje(id INT(3) AUTO_INCREMENT NOT NULL, nombre_link VARCHAR(30), link TEXT NOT NULL, id_ambulancia INT(3) NOT NULL, PRIMARY KEY(id))
 
 ALTER TABLE links_kilometraje ADD CONSTRAINT `fk_links_kilometraje` FOREIGN KEY (id_ambulancia) REFERENCES ambulancia(id) ON UPDATE CASCADE ON DELETE CASCADE
+
+CREATE TABLE documentos( id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, ubicacion TEXT, id_ambulancia INT(3), PRIMARY KEY(id))
+
+ALTER TABLE documentos ADD CONSTRAINT `fk_documentos` FOREIGN KEY (id_ambulancia) REFERENCES ambulancia(id) ON UPDATE CASCADE ON DELETE CASCADE
