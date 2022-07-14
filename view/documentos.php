@@ -13,6 +13,7 @@ if (!isset($_SESSION['login'])) {
 }
 
 $id_ambulancia = $_GET['id'];
+$id_folder = $_GET['folder'];
 
 // Consultamos los links para mostrarlos en el fronted
 
@@ -21,13 +22,11 @@ $id_ambulancia = $_GET['id'];
 
 <section class="centrar-flex">
 
-    <a href="./ver_info_ambulancia.php?id=<?php echo $id_ambulancia; ?>" class="boton__volver">
-        <img src="<?php echo $carpeta_imagen . 'volver.png';?>" alt="img volver">
+    <a href="./carpetas.php?id=<?php echo $id_ambulancia; ?>" class="boton__volver">
+        <img src="<?php echo $carpeta_imagen . 'volver.png'; ?>" alt="img volver">
     </a>
 
-    <div class="grid-2-column">
-        
-    </div>
+    
 
 
 

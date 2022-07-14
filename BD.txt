@@ -52,6 +52,10 @@ CREATE TABLE links_kilometraje(id INT(3) AUTO_INCREMENT NOT NULL, nombre_link VA
 
 ALTER TABLE links_kilometraje ADD CONSTRAINT `fk_links_kilometraje` FOREIGN KEY (id_ambulancia) REFERENCES ambulancia(id) ON UPDATE CASCADE ON DELETE CASCADE
 
-CREATE TABLE documentos( id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, ubicacion TEXT, id_ambulancia INT(3), PRIMARY KEY(id))
+CREATE TABLE carpetas_documentos( id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, id_ambulancia INT(3), PRIMARY KEY(id))
 
-ALTER TABLE documentos ADD CONSTRAINT `fk_documentos` FOREIGN KEY (id_ambulancia) REFERENCES ambulancia(id) ON UPDATE CASCADE ON DELETE CASCADE
+ALTER TABLE carpetas_documentos ADD CONSTRAINT `fk_carpetas_documentos` FOREIGN KEY (id_ambulancia) REFERENCES ambulancia(id) ON UPDATE CASCADE ON DELETE CASCADE
+
+CREATE TABLE documentos( id INT(3) AUTO_INCREMENT NOT NULL, nombre VARCHAR(30) NOT NULL, ubicacion TEXT NOT NULL, id_carpeta INT(3) NOT NULL, PRIMARY KEY(id))
+
+ALTER TABLE documentos ADD CONSTRAINT `fk_documentos` FOREIGN KEY (id_carpeta) REFERENCES carpetas_documentos(id) ON UPDATE CASCADE ON DELETE CASCADE

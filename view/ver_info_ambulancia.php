@@ -52,7 +52,7 @@ mysqli_fetch_assoc($result_disp);
             <h3>Ambulancia Medicalizada</h3>
             <img src="<?php echo $r['imagen']; ?>" alt="Foto Ambulancia">
             <a href="<?php echo "./insumos.php?id=" . $id_ambulancia; ?>" class="btn__opciones__ambulancia">Ver Insumos</a>
-            <a href="<?php echo $carpeta_vistas . 'documentos.php?id=' . $id_ambulancia; ?>" class="btn__opciones__ambulancia">Ver Documentos</a>
+            <a href="<?php echo $carpeta_vistas . 'carpetas.php?id=' . $id_ambulancia; ?>" class="btn__opciones__ambulancia">Ver Documentos</a>
             <a href="<?php echo $carpeta_vistas . 'links_aseo.php?id=' . $id_ambulancia; ?>" class="btn__opciones__ambulancia">Links de aseo</a>
             <a href="<?php echo $carpeta_vistas . 'links_kilometraje.php?id=' . $id_ambulancia; ?>" class="btn__opciones__ambulancia">Links Kilometraje</a>
         </div> <!-- Fin del contenedor de la imagen -->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-07-2022 a las 16:29:54
+-- Tiempo de generación: 14-07-2022 a las 16:23:04
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.1
 
@@ -42,6 +42,18 @@ INSERT INTO `ambulancia` (`id`, `placa`, `id_tipo_ambulancia`, `imagen`) VALUES
 (3, 'B45-0KS', 1, '/ambulancias-app/img/e868e7d7c91b5a1f8df48fc9b5234eb4.jpg'),
 (4, 'A32-0MK', 2, '/ambulancias-app/img/19eb57b6dd2f68b9f65a67207c9f2085.jpg'),
 (5, 'a22-mk0', 2, '/ambulancias-app/img/ec39cb9514cd2a64dd8c604b0554804a.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `carpetas_documentos`
+--
+
+CREATE TABLE `carpetas_documentos` (
+  `id` int(3) NOT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `id_ambulancia` int(3) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -97,8 +109,8 @@ INSERT INTO `dispositivos_medicos_default` (`id`, `nombre`) VALUES
 CREATE TABLE `documentos` (
   `id` int(3) NOT NULL,
   `nombre` varchar(30) NOT NULL,
-  `ubicacion` text DEFAULT NULL,
-  `id_ambulancia` int(3) DEFAULT NULL
+  `ubicacion` text NOT NULL,
+  `id_carpeta` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -286,6 +298,13 @@ ALTER TABLE `ambulancia`
   ADD KEY `id_tipo_ambulancia` (`id_tipo_ambulancia`);
 
 --
+-- Indices de la tabla `carpetas_documentos`
+--
+ALTER TABLE `carpetas_documentos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_carpetas_documentos` (`id_ambulancia`);
+
+--
 -- Indices de la tabla `dispositivos_medicos`
 --
 ALTER TABLE `dispositivos_medicos`
@@ -303,7 +322,7 @@ ALTER TABLE `dispositivos_medicos_default`
 --
 ALTER TABLE `documentos`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_documentos` (`id_ambulancia`);
+  ADD KEY `fk_documentos` (`id_carpeta`);
 
 --
 -- Indices de la tabla `herramientas`
@@ -366,6 +385,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `ambulancia`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `carpetas_documentos`
+--
+ALTER TABLE `carpetas_documentos`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `dispositivos_medicos`
@@ -444,6 +469,12 @@ ALTER TABLE `ambulancia`
   ADD CONSTRAINT `ambulancia_ibfk_1` FOREIGN KEY (`id_tipo_ambulancia`) REFERENCES `tipo_ambulancia` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Filtros para la tabla `carpetas_documentos`
+--
+ALTER TABLE `carpetas_documentos`
+  ADD CONSTRAINT `fk_carpetas_documentos` FOREIGN KEY (`id_ambulancia`) REFERENCES `ambulancia` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Filtros para la tabla `dispositivos_medicos`
 --
 ALTER TABLE `dispositivos_medicos`
@@ -453,7 +484,7 @@ ALTER TABLE `dispositivos_medicos`
 -- Filtros para la tabla `documentos`
 --
 ALTER TABLE `documentos`
-  ADD CONSTRAINT `fk_documentos` FOREIGN KEY (`id_ambulancia`) REFERENCES `ambulancia` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_documentos` FOREIGN KEY (`id_carpeta`) REFERENCES `carpetas_documentos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `herramientas`

@@ -22,6 +22,8 @@
 
     --fuenteParrafos: 'Roboto', sans-serif;
     --fuenteTitulos: 'Akshar', sans-serif;
+
+    --gridAuto: repeat(auto-fit, minmax(min(100%, 30rem), 1fr) );
 }
 
 
@@ -498,7 +500,7 @@ p {
 
 .contenido__principal {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 30rem), 1fr) );
+    grid-template-columns: var(--gridAuto);
     gap: 5rem;
 }
 
@@ -765,8 +767,40 @@ p {
 
 
 
+/*----------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
 
 
+
+
+/* Documentos */
+.carpetas {
+    display: grid;
+    grid-template-columns: var(--gridAuto);
+    gap: 5rem;
+}
+
+.carpeta {
+    margin: 0 auto;
+    padding: 6rem;
+    border-radius: 2rem;
+    max-width: 40rem;
+    box-shadow: 4px 4px 10px 5px rgba(0, 0, 0, 0.2);
+    background-color: var(--grisClaro);
+}
+
+.carpeta img {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+}
+
+.carpeta h3 {
+    text-decoration: none;
+    color: var(--negro);
+}
 
 
 
