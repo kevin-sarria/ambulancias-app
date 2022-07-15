@@ -29,7 +29,7 @@ mysqli_fetch_assoc($resultado);
     <img src="<?php echo $carpeta_imagen . 'volver.png';?>" alt="img volver">
 </a>
 
-    <div class="btn_nuevo_medicamento">
+    <div class="boton_div">
         <a href="./registrar_medicamento.php?id=<?php echo $id_ambulancia; ?>" class="btn_verde">+Nuevo Medicamento</a>
     </div>
 

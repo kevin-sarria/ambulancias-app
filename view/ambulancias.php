@@ -3,6 +3,7 @@
 session_start();
 
 include('../includes/header.php');
+include('../model/rutas.php');
 include('../model/conexion.php');
 
 if (!isset($_SESSION['login'])) {
@@ -21,15 +22,18 @@ mysqli_fetch_assoc($respuesta);
 
     <?php
 
-        if( $_SESSION['user'] == 1 ) {
-            echo "
+        if( $_SESSION['user'] == 1 ):
+        
+    ?>
             <div class='ambulancia'>
-                <a href='/ambulancias-app/view/crear-ambulancia.php'>
+                <a href='<?php echo $carpeta_vistas . 'crear_ambulancia.php'; ?>'>
                     <h3>Nueva Ambulancia</h3>
-                    <img src='/ambulancias-app/img/ambulancia.png' alt=''>
+                    <img src='<?php echo $carpeta_imagen . 'ambulancia.png' ?>' alt='Logo Ambulancia'>
                 </a>
-            </div>";
-        }
+            </div>
+    <?php
+    
+        endif;
 
     ?>
 
