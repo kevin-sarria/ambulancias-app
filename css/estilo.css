@@ -160,6 +160,11 @@ p {
 
 .btn_rojo {
     background-color: var(--rojoError);
+    padding: 1rem;
+    font-size: 2rem;
+    border-radius: 1rem;
+    font-weight: bold;
+    color: var(--blanco);
 }
 
 .btn_rojo:hover {
@@ -806,6 +811,32 @@ p {
 
 /* Documentos */
 
+.documentos {
+    display: grid;
+    grid-template-columns: var(--gridAuto);
+    gap: 5rem;
+}
+
+.documento {
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 2rem;
+    max-width: 30rem;
+    box-shadow: 4px 4px 10px 5px rgba(0, 0, 0, 0.2);
+    background-color: var(--grisClaro);
+}
+
+.documento a {
+    color: var(--azulTitulos);
+}
+
+.documento h3 {
+    margin: 1rem auto;
+}
+
+.documento img {
+    width: 65%;
+}
 
 
 

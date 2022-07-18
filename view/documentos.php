@@ -33,34 +33,40 @@ mysqli_fetch_assoc($resultado);
         <a href="<?php echo $carpeta_vistas . 'crear_documento.php?folder=' . $id_folder . '&id=' . $id_ambulancia; ?>" class="btn_verde">Nuevo Documento</a>
     </div>
 
-    <?php
 
-    if($resultado->num_rows):
+    <div class="documentos centrar">
 
-        foreach($resultado as $result):
-    ?>
-    
-        <div class="documentos">
-            <div class="documento">
-                <a href="<?php echo $result['ubicacion']; ?>" target="_blank">
-                    <h3><?php echo $result['nombre']; ?></h3>
-                    <img src="<?php echo $carpeta_imagen . 'pdf.png'; ?>" alt="Icono PDF">
-                </a>
-            </div>
-        </div>
+        <?php
 
-    <?php
+        if ($resultado->num_rows) :
 
-        endforeach;
+            foreach ($resultado as $result) :
+        ?>
 
-            else:      
-    ?>
+
+                <div class="documento">
+                    <a href="<?php echo $result['ubicacion']; ?>" target="_blank">
+                        <h3><?php echo $result['nombre']; ?></h3>
+                        <img src="<?php echo $carpeta_imagen . 'pdf.png'; ?>" alt="Icono PDF">
+                    </a>
+                </div>
+
+            <?php
+
+            endforeach;
+
+        else :
+            ?>
             <p class="alerta neutro">No hay ningún dato registrado, Da click en el boton de Nuevo Documento para añadir uno nuevo</p>
-    <?php
+        <?php
         endif;
-    ?>
+        ?>
 
+    </div>
 
+    <div class="boton_div">
+        <a href="" class="btn_rojo">Eliminar Documentos...</a>
+    </div>
 
 </section>
 
