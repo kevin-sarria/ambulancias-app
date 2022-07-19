@@ -152,6 +152,13 @@ p {
 
 .btn_amarillo {
     background-color: var(--amarillo);
+    padding: 1rem;
+    font-size: 2rem;
+    border-radius: 1rem;
+    font-weight: bold;
+    color: var(--blanco);
+    text-align: center;
+    border: none;
 }
 
 .btn_amarillo:hover {
@@ -165,6 +172,8 @@ p {
     border-radius: 1rem;
     font-weight: bold;
     color: var(--blanco);
+    border: none;
+    cursor: pointer;
 }
 
 .btn_rojo:hover {
@@ -218,6 +227,10 @@ p {
 .alinear_derecha {
     right: 0;
     margin-right: 0;
+}
+
+.mb-5 {
+    margin-bottom: 5rem;
 }
 
 /*----------------------------------------------------------------------------------------------*/

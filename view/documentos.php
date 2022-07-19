@@ -64,8 +64,8 @@ mysqli_fetch_assoc($resultado);
 
     </div>
 
-    <div class="boton_div">
-        <a href="" class="btn_rojo">Eliminar Documentos...</a>
+    <div class="boton_div margin-5-top">
+        <a href="<?php echo $carpeta_vistas . 'borrar_archivos.php?folder=' . $id_folder . '&id=' . $id_ambulancia ?>" class="btn_rojo">Eliminar Documentos...</a>
     </div>
 
 </section>
