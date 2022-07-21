@@ -15,27 +15,41 @@ if (!isset($_SESSION['login'])) {
 $id_ambulancia = $_GET['id'];
 
 // Consultamos los archivos para mostrarlos en el fronted
-$query = "SELECT * FROM documentos where id = $id_ambulancia";
+$query = "SELECT * FROM carpetas_documentos where id_ambulancia = $id_ambulancia";
 $respuesta = mysqli_query($conexion, $query);
 mysqli_fetch_assoc($respuesta);
 
+echo $query . '<br>';
+
 foreach($respuesta as $resp) {
 
-    $new_ubi = str_replace('/ambulancias-app', '..', $resp['ubicacion']);
+    echo $resp['nombre'] . '<br>';
 
-    $borrar = $new_ubi;
-}
+};
+
+exit;
 
 // Revisamos si se recibio una peticion de tipo "POST" para ejecutar la consulta de borrar archivo...
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+    foreach($respuesta as $resp) {
+
+        $new_ubi = str_replace('/ambulancias-app', '..', $resp['ubicacion']);
+    
+        $borrar = $new_ubi;
+
+    };
+
+    $doc_delete = unlink($borrar);
+
+    echo $doc_delete;
+
+    
 
     $query_delete = "DELETE FROM `documentos` WHERE id = $id_doc";
 
     $resultado = mysqli_query($conexion, $query_delete);
-
-    $doc_delete = unlink($borrar);
 
     if($resultado && $doc_delete) {
         header('location:' . $carpeta_vistas . 'borrar_archivos.php?folder=' . $id_folder . '&id=' . $id_ambulancia );
