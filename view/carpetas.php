@@ -50,7 +50,9 @@ mysqli_fetch_assoc($resultado);
 
     </div>
 
-
+    <div class="boton boton_div margin-5-top">
+        <a href="<?php echo $carpeta_vistas . 'borrar_carpetas.php?id=' . $id_ambulancia;  ?>" class="btn_rojo">Eliminar carpeta...</a>
+    </div>
 
 </section>
 

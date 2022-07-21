@@ -13,11 +13,9 @@ if (!isset($_SESSION['login'])) {
 }
 
 $id_ambulancia = $_GET['id'];
-$id_folder = $_GET['folder'];
-$id_doc = $_GET['doc'];
 
 // Consultamos los archivos para mostrarlos en el fronted
-$query = "SELECT * FROM documentos where id = $id_doc";
+$query = "SELECT * FROM documentos where id = $id_ambulancia";
 $respuesta = mysqli_query($conexion, $query);
 mysqli_fetch_assoc($respuesta);
 
