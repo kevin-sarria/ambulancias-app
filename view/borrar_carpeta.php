@@ -13,46 +13,56 @@ if (!isset($_SESSION['login'])) {
 }
 
 $id_ambulancia = $_GET['id'];
+$id_folder = $_GET['folder'];
 
-// Consultamos los archivos para mostrarlos en el fronted
-$query = "SELECT * FROM carpetas_documentos where id_ambulancia = $id_ambulancia";
+// Consultamos los datos para hacer despues el proceso de borrado
+$query = "SELECT * FROM carpetas_documentos where id = $id_folder";
 $respuesta = mysqli_query($conexion, $query);
 mysqli_fetch_assoc($respuesta);
 
-echo $query . '<br>';
+// Consultamos los datos para hacer despues el proceso de borrado
+$query_2 = "SELECT * FROM documentos where id_carpeta = $id_folder";
+$resultado = mysqli_query($conexion, $query_2);
+mysqli_fetch_assoc($resultado);
 
-foreach($respuesta as $resp) {
-
-    echo $resp['nombre'] . '<br>';
-
-};
-
-exit;
-
-// Revisamos si se recibio una peticion de tipo "POST" para ejecutar la consulta de borrar archivo...
+// Revisamos si se recibio una peticion de tipo "POST" para ejecutar la consulta de borrar carpetas...
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    foreach($respuesta as $resp) {
-
-        $new_ubi = str_replace('/ambulancias-app', '..', $resp['ubicacion']);
     
-        $borrar = $new_ubi;
+
+
+    foreach($resultado as $result) {
+    
+        $id_doc[] = $result['id'];
+
+
+        for ($i=0; $i < 1; $i++) { 
+            
+            $new_ubi[] = str_replace('/ambulancias-app', '..', $result['ubicacion']);
+    
+            $borrar[$i] = end($new_ubi);
+
+            $doc_delete = unlink($borrar[$i]);
+
+
+        }
 
     };
-
-    $doc_delete = unlink($borrar);
-
-    echo $doc_delete;
-
     
 
-    $query_delete = "DELETE FROM `documentos` WHERE id = $id_doc";
+    for ($i=0; $i < count($id_doc); $i++) { 
+        $query_delete[$i] = "DELETE FROM `documentos` WHERE id = $id_doc[$i]";
 
-    $resultado = mysqli_query($conexion, $query_delete);
+        $delete[$i] = mysqli_query($conexion, $query_delete[$i]);
+    }
 
-    if($resultado && $doc_delete) {
-        header('location:' . $carpeta_vistas . 'borrar_archivos.php?folder=' . $id_folder . '&id=' . $id_ambulancia );
+    $query_delete_2 = "DELETE FROM `carpetas_documentos` where id = $id_folder";
+
+    $delete_2 = mysqli_query($conexion, $query_delete_2);
+
+    if($delete_2) {
+        header('location:' . $carpeta_vistas . 'borrar_carpetas.php?id=' . $id_ambulancia );
     }
 
 }
@@ -69,10 +79,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <form method="POST">
 
-            <h2 class="color_red centrar mb-5">¿Seguro que desea eliminar "<?php echo $resp['nombre']; ?>"?</h2>
+            <h3 class="color_red centrar mb-5">¿Seguro que desea eliminar "<?php echo $resp['nombre']; ?>" y todos los archivos que contiene dentro?</h3>
 
             <div class="grid-2-column">
-                <a href="<?php echo $carpeta_vistas . 'borrar_archivos.php?folder=' . $id_folder . '&id=' . $id_ambulancia; ?>" class="btn_amarillo">Cancelar</a>
+                <a href="<?php echo $carpeta_vistas . 'borrar_carpetas.php?id=' . $id_ambulancia; ?>" class="btn_amarillo">Cancelar</a>
 
                 <input type="submit" value="Si, Eliminar" class="btn_rojo">
             </div>

@@ -43,7 +43,7 @@ mysqli_fetch_assoc($resultado);
                     <?php foreach($resultado as $datos): ?>
                     <tr>
                         <th data-label = "Nombre" ><?php echo $datos['nombre']; ?></th>
-                        <th><a href="<?php echo $carpeta_vistas . 'borrar_carpeta.php?id=' . $id_ambulancia; ?>" class="color_red">Eliminar</a></th>
+                        <th><a href="<?php echo $carpeta_vistas . 'borrar_carpeta.php?folder=' . $datos['id'] . '&id=' . $id_ambulancia; ?>" class="color_red">Eliminar</a></th>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
